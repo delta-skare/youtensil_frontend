@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-// import '../css/Login.css';
-import AuthService from '../services/AuthService';
+import React, { Component } from 'react'
+import '../css/Register.css';
+import AuthService from '../services/AuthService'
 
-class Login extends Component {
+class Register extends Component {
   constructor(){
     super()
     this.Auth = new AuthService()
@@ -18,7 +18,7 @@ class Login extends Component {
 
   handleFormSubmit(e){
     e.preventDefault()
-    this.Auth.login(this.state.email,this.state.password)
+    this.Auth.register({user: this.state})
     .then(res =>{
       this.props.history.replace('/')
     })
@@ -29,7 +29,7 @@ class Login extends Component {
     return (
       <div className="center">
         <div className="card">
-          <h1>Login</h1>
+          <h1>Register</h1>
           <form onSubmit={this.handleFormSubmit.bind(this)}>
             <input
               className="form-item"
@@ -59,4 +59,4 @@ class Login extends Component {
   }
 }
 
-export default Login;
+export default Register
