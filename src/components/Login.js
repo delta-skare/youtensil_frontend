@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 // import '../css/Login.css';
 import AuthService from '../services/AuthService';
+import NavBar from './NavBar';
+import Footer from './Footer';
 
 class Login extends Component {
   constructor(){
@@ -28,6 +30,7 @@ class Login extends Component {
   render() {
     return (
       <div className="center">
+        <NavBar />
         <div className="card">
           <h1>Login</h1>
           <form onSubmit={this.handleFormSubmit.bind(this)}>
@@ -54,6 +57,7 @@ class Login extends Component {
             />
           </form>
         </div>
+        <Footer />
       </div>
     );
   }

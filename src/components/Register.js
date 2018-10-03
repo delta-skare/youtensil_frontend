@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import '../css/Register.css';
-import AuthService from '../services/AuthService'
+import AuthService from '../services/AuthService';
+import NavBar from './NavBar';
+import Footer from './Footer';
 
 class Register extends Component {
   constructor(){
@@ -28,6 +30,7 @@ class Register extends Component {
   render() {
     return (
       <div className="center">
+        <NavBar />
         <div className="card">
           <h1>Register</h1>
           <form onSubmit={this.handleFormSubmit.bind(this)}>
@@ -54,6 +57,7 @@ class Register extends Component {
             />
           </form>
         </div>
+        <Footer />
       </div>
     );
   }
