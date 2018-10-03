@@ -6,6 +6,12 @@ import Register from './components/Register';
 import Login from './components/Login';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import registerServiceWorker from './registerServiceWorker';
+import UserProfile from './components/UserProfile';
+import TipFeed from './components/TipFeed';
+import EditTip from './components/EditTip';
+import AddTip from './components/AddTip';
+import UserDashboard from './components/UserDashboard';
+import Landing from './components/Landing';
 
 ReactDOM.render(
   <Router>
@@ -26,7 +32,36 @@ ReactDOM.render(
           path="/login"
           component={Login}
         />
-
+        <Route
+          exact
+          path="/user"
+          component={UserProfile}
+        />
+        <Route
+          exact
+          path="/tips"
+          component={TipFeed}
+        />
+        <Route
+          exact
+          path="/edittip"
+          component={EditTip}
+        />
+        <Route
+          exact
+          path="/addtip"
+          component={AddTip}
+        />
+        <Route
+          exact
+          path="/dashboard"
+          component={UserDashboard}
+        />
+        <Route
+          exact
+          path="/home"
+          component={Landing}
+        />
       </Switch>
     </div>
   </Router>
