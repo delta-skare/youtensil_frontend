@@ -10,7 +10,8 @@ class Register extends Component {
     this.Auth = new AuthService()
     this.state={
       email: '',
-      password: ''
+      password: '',
+      password_confirmation: ''
     }
   }
 
@@ -49,6 +50,14 @@ class Register extends Component {
               type="password"
               onChange={this.handleChange.bind(this)}
               value={this.state.password}
+            />
+            <input
+              className="form-item"
+              placeholder="Confirm password"
+              name="password_confirmation"
+              type="password"
+              onChange={this.handleChange.bind(this)}
+              value={this.state.password_confirmation}
             />
             <input
               className="form-submit"

@@ -7,10 +7,10 @@ render() {
         <nav>
             <div>
                 <ul>
-                <li>Home</li> 
-                <li>Tips</li> 
+                <li>Home</li>
+                <li>Tips</li>
                 <li>Team</li>
-                </ul>    
+                </ul>
             </div>
             <div>
                 <form>
