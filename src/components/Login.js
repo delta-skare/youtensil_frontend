@@ -6,7 +6,7 @@ class Login extends Component {
   constructor(){
     super()
     this.Auth = new AuthService()
-    this.state={
+    this.state = {
       email: '',
       password: ''
     }

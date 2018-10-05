@@ -5,6 +5,7 @@ import App from './components/App';
 import Login from './components/Login';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import registerServiceWorker from './registerServiceWorker';
+import ImageUploader from './components/ImageUploader'
 
 ReactDOM.render(
   <Router>
@@ -18,6 +19,11 @@ ReactDOM.render(
         exact
         path="/login"
         component={Login}
+      />
+      <Route
+        exact
+        path="/image-uploader"
+        component={ImageUploader}
       />
     </div>
   </Router>
