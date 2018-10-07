@@ -23,9 +23,9 @@ class Register extends Component {
     e.preventDefault()
     this.Auth.register({user: this.state})
     .then(res =>{
-      this.props.history.replace('/')
+      this.props.history.replace('/dashboard')
     })
-    .catch(err =>{ alert(err) })
+    .catch(err =>{ alert('Invalid credentials. Please make sure email is not in use and that password fields are identical.') })
   }
 
   render() {
