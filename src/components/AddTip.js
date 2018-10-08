@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import NavBar from './NavBar';
 import Footer from './Footer';
+import ImageUploader from './ImageUploader';
+import { storage } from './firebase'
 
 class addTip extends Component {
 
@@ -15,7 +17,7 @@ class addTip extends Component {
           <p>Description</p>
           <textarea></textarea>
           <p>Image</p>
-          <img src="./images/eggnog-blossoms.jpg"/>
+          <ImageUploader />
           <button>Submit</button>
         </div>
         <Footer />
