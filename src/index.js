@@ -13,58 +13,74 @@ import EditTip from './components/EditTip';
 import AddTip from './components/AddTip';
 import UserDashboard from './components/UserDashboard';
 import Landing from './components/Landing';
+import UserProfileFeed from './components/UserProfileFeed';
+import NavBar from './components/NavBar';
+import Footer from './components/Footer';
 
 ReactDOM.render(
-  <Router>
+  <div>
     <div>
-      <Switch>
-        <Route
-          exact
-          path='/'
-          component={App}
-        />
-        <Route
-          exact
-          path="/register"
-          component={Register}
-        />
-        <Route
-          exact
-          path="/login"
-          component={Login}
-        />
-        <Route
-          exact
-          path="/user"
-          component={UserProfile}
-        />
-        <Route
-          exact
-          path="/tips"
-          component={TipFeed}
-        />
-        <Route
-          exact
-          path="/edittip"
-          component={EditTip}
-        />
-        <Route
-          exact
-          path="/addtip"
-          component={AddTip}
-        />
-        <Route
-          exact
-          path="/dashboard"
-          component={UserDashboard}
-        />
-        <Route
-          exact
-          path="/home"
-          component={Landing}
-        />
-      </Switch>
+      <NavBar />
     </div>
-  </Router>
+      <Router>
+        <div>
+          <Switch>
+            <Route
+              exact
+              path='/'
+              component={App}
+            />
+            <Route
+              exact
+              path="/register"
+              component={Register}
+            />
+            <Route
+              exact
+              path="/login"
+              component={Login}
+            />
+            <Route
+              exact
+              path="/user"
+              component={UserProfile}
+            />
+            <Route
+              exact
+              path="/profiles"
+              component={UserProfileFeed}
+            />
+            <Route
+              exact
+              path="/tips"
+              component={TipFeed}
+            />
+            <Route
+              exact
+              path="/edittip"
+              component={EditTip}
+            />
+            <Route
+              exact
+              path="/addtip"
+              component={AddTip}
+            />
+            <Route
+              exact
+              path="/dashboard"
+              component={UserDashboard}
+            />
+            <Route
+              exact
+              path="/home"
+              component={Landing}
+            />
+          </Switch>
+        </div>
+      </Router>
+  <div>
+      <Footer />
+  </div>
+  </div>
 , document.getElementById('root'));
 registerServiceWorker();

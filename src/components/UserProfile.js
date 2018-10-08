@@ -1,13 +1,10 @@
 import React, { Component } from 'react';
-import NavBar from './NavBar';
-import Footer from './Footer';
 
 class userProfile extends Component {
 
   render() {
     return (
       <div>
-        <NavBar />
         <div>
           <h1>Profile</h1>
             <p>Username</p>
@@ -17,7 +14,6 @@ class userProfile extends Component {
             <h3>About</h3>
                 <p>I mountain bike and work at The Andaz Hotel in downtown San Diego.</p>
         </div>
-        <Footer />
       </div>
     );
   }
