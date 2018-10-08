@@ -24,7 +24,7 @@ class Login extends Component {
     .then(res =>{
       this.props.history.replace('/dashboard')
     })
-    .catch(err =>{ alert(err) })
+    .catch(err =>{ alert('Invalid credentials. Please double-check your inputs and try again.') })
   }
 
   render() {
