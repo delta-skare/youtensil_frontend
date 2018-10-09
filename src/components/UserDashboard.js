@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import withAuth from './withAuth'
 import AuthService from '../services/AuthService'
+import ImageUploader from './ImageUploader'
 import { getOrMakeProfileByUserId as getProfile, editProfile } from '../services/ProfileService'
 
 class userDashboard extends Component {
@@ -54,6 +55,15 @@ class userDashboard extends Component {
     this.setState({ model })
   }
 
+  handleImage = (url) => {
+    let { profile, currentProfile } = this.state
+    editProfile(profile.id, {profile: {image: url}})
+    .then(res => {
+      currentProfile.image = url
+      this.setState({ currentProfile })
+    })
+  }
+
   // This toggles the appropriate form field to appear
   toggleFormField = (field) => (e) => {
     e.preventDefault()
@@ -71,7 +81,7 @@ class userDashboard extends Component {
     // Profile form fields
     // NOTE: Need to find a way to notify that a username is already taken
     if (parameter === "food_types" || parameter === "username" || parameter === "bio"){
-      editProfile(this.state.profile.id, this.state.profile)
+      editProfile(profile.id, profile)
       .then(res =>{
         this.setState({currentProfile: {...profile}})
       })
@@ -202,32 +212,34 @@ class userDashboard extends Component {
   render() {
     let { currentProfile, form } = this.state
     return (
-          <div>
-              <div>
-                  <h1>Dashboard</h1>
-                  <p><img src="../images/woman-silhouette.jpg" alt="Your avatar"/></p>
-                      <button onClick={this.toggleFormField("image")}>Edit Image</button>
-                  <h2>Username</h2>
-                      <p>{currentProfile.username}</p>
-                      <button onClick={this.toggleFormField("username")}>Edit Username</button>
-                      {form.username && this.createFormField("username")}
-                  <h3>About</h3>
-                      <p>{currentProfile.bio}</p>
-                      <button onClick={this.toggleFormField("bio")}>Edit About</button>
-                      {form.bio && this.createFormField("bio")}
-                  <h3>Favorite Foods</h3>
-                      <p>{currentProfile.food_types}</p>
-                      <button onClick={this.toggleFormField("food_types")}>Edit Foods</button>
-                      {form.food_types && this.createFormField("food_types")}
-                  <h3>Email</h3>
-                      <p>Email</p>
-                      <button onClick={this.toggleFormField("email")}>Edit Email</button>
-                      {form.email && this.createFormField("email")}
-                  <h3>Password</h3>
-                      <button onClick={this.toggleFormField("password")}>Edit Password</button>
-                      {form.password && this.createFormField("password")}
-              </div>
-          </div>
+        <div>
+            <div>
+                <h1>Dashboard</h1>
+                <div><img src={this.state.currentProfile.image} alt="Your avatar"/></div>
+                    <button onClick={this.toggleFormField("image")}>Edit Image</button>
+                    {form.image && <ImageUploader location="profile-images" handleImage={this.handleImage} />}
+                <h2>Username</h2>
+                    <p>{currentProfile.username}</p>
+                    <button onClick={this.toggleFormField("username")} className="edit-button">Edit Username</button>
+                    {form.username && this.createFormField("username")}
+                <h3>About</h3>
+                    <p>{currentProfile.bio}</p>
+                    <button onClick={this.toggleFormField("bio")}>Edit About</button>
+                    {form.bio && this.createFormField("bio")}
+                <h3>Favorite Foods</h3>
+                    <p>{currentProfile.food_types}</p>
+                    <button onClick={this.toggleFormField("food_types")}>Edit Foods</button>
+                    {form.food_types && this.createFormField("food_types")}
+                <h3>Email</h3>
+                    <p>Email</p>
+                    <button onClick={this.toggleFormField("email")}>Edit Email</button>
+                    {form.email && this.createFormField("email")}
+                <h3>Password</h3>
+                    <button onClick={this.toggleFormField("password")}>Edit Password</button>
+                    {form.password && this.createFormField("password")}
+            </div>
+        </div>
+
     );
   }
 }
