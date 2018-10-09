@@ -20,7 +20,7 @@ import NavBar from './components/NavBar'
 ReactDOM.render(
   <Router>
     <div>
-    <Route component={NavBar} />
+    <NavBar />
       <Switch>
         <Route
           exact
