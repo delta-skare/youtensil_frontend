@@ -75,7 +75,7 @@ class ImageUploader extends Component {
       console.log(image);
       // save FileReader to variable
       // const reader = new FileReader()
-      var uploadTask = storage.ref(`images/${image.name}`).put(image)
+      var uploadTask = storage.ref(`${this.props.location}/${image.name}`).put(image)
       uploadTask.on('state_changed',
       (snapshot) => {
         // progress function
@@ -87,10 +87,10 @@ class ImageUploader extends Component {
       },
       () => {
         //complete function
-        var getUrl = storage.ref('images').child(image.name).getDownloadURL()
+        var getUrl = storage.ref(this.props.location).child(image.name).getDownloadURL()
         getUrl.then(url => {
-          console.log(getUrl);
-          this.setState({url: getUrl})
+          console.log(url);
+          this.props.handleImage(url)
         })
       })
       return true
@@ -108,7 +108,8 @@ class ImageUploader extends Component {
       flexDirection: 'column',
       alignItems: 'center',
       justifyContent: 'center',
-      border: 'solid 1px'
+      border: 'solid 1px',
+      padding: '10px'
     }
 
     console.log("show up");
@@ -122,7 +123,7 @@ class ImageUploader extends Component {
           <input type="file" onChange={this.handleChange} multiple={false} accept={acceptedFileTypesArray}/>
         </div>
           <div style={style}>
-            {imgSrc !== null ? <div><img src={imgSrc} alt="image-preview" /></div> : ''}
+            {imgSrc !== null ? <div><img style={{objectFit:"contain", height:"100%", width:"100%"}} src={imgSrc} alt="image-preview" /></div> : ''}
           </div>
         <button className="upload-image" onClick={this.handleUpload}>Upload</button>
         <br/>

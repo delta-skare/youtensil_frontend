@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import withAuth from './withAuth'
 import AuthService from '../services/AuthService'
+import ImageUploader from './ImageUploader'
 import { getOrMakeProfileByUserId as getProfile, editProfile } from '../services/ProfileService'
 
 class userDashboard extends Component {
@@ -54,6 +55,14 @@ class userDashboard extends Component {
     this.setState({ model })
   }
 
+  handleImage = (url) => {
+    let { profile } = this.state
+    editProfile(profile.id, {profile: {image: url}})
+    .then(res => {
+      this.setState({currentProfile: {...profile}})
+    })
+  }
+
   // This toggles the appropriate form field to appear
   toggleFormField = (field) => (e) => {
     e.preventDefault()
@@ -71,7 +80,7 @@ class userDashboard extends Component {
     // Profile form fields
     // NOTE: Need to find a way to notify that a username is already taken
     if (parameter === "food_types" || parameter === "username" || parameter === "bio"){
-      editProfile(this.state.profile.id, this.state.profile)
+      editProfile(profile.id, profile)
       .then(res =>{
         this.setState({currentProfile: {...profile}})
       })
@@ -205,11 +214,12 @@ class userDashboard extends Component {
         <div>
             <div>
                 <h1>Dashboard</h1>
-                <p><img src="../images/woman-silhouette.jpg" alt="Your avatar"/></p>
+                <div><img src={this.state.profile.image} alt="Your avatar"/></div>
                     <button onClick={this.toggleFormField("image")}>Edit Image</button>
+                    {form.image && <ImageUploader location="profile-images" handleImage={this.handleImage} />}
                 <h2>Username</h2>
                     <p>{currentProfile.username}</p>
-                    <button onClick={this.toggleFormField("username")}>Edit Username</button>
+                    <button onClick={this.toggleFormField("username")} className="edit-button">Edit Username</button>
                     {form.username && this.createFormField("username")}
                 <h3>About</h3>
                     <p>{currentProfile.bio}</p>
