@@ -14,8 +14,10 @@ import EditTip from './components/EditTip';
 import AddTip from './components/AddTip';
 import UserDashboard from './components/UserDashboard';
 import Landing from './components/Landing';
-import Footer from './components/Footer'
-import NavBar from './components/NavBar'
+import UserProfileFeed from './components/UserProfileFeed';
+import Team from './components/Team';
+import Footer from './components/Footer';
+import NavBar from './components/NavBar';
 
 ReactDOM.render(
   <Router>
@@ -75,6 +77,7 @@ ReactDOM.render(
       <Route component={Footer} />
     </div>
   </Router>
+
 
 , document.getElementById('root'));
 registerServiceWorker();

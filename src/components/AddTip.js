@@ -4,6 +4,7 @@ import { storage } from './firebase'
 import { createTip } from '../services/TipService'
 import withAuth from './withAuth'
 
+
 class addTip extends Component {
   constructor(){
     super()

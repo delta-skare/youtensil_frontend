@@ -4,7 +4,6 @@ import { editTip, getTip } from '../services/TipService.js'
 import ImageUploader from './ImageUploader'
 import withAuth from './withAuth.js'
 
-
 class EditTip extends Component {
   constructor(){
     super()

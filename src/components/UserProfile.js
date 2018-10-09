@@ -3,6 +3,7 @@ import { getUserTips } from '../services/TipService.js'
 import Tip from './Tip'
 import AuthService from '../services/AuthService.js'
 
+
 class userProfile extends Component {
   constructor(props){
     super(props)

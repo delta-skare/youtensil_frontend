@@ -9,7 +9,7 @@ render() {
             <div className="footer">
                 <a href='/home'>Home</a>
                 <a href="/addtip">Add Tip</a>
-                <a href="/">Support</a>
+                <a href="/team">Team</a>
             </div>
         </div>
     );

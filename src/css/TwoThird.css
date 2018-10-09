@@ -1,29 +1,9 @@
-@media (max-width:500px){
-  .container{
-    display:grid;
-    grid-template-areas: 
-      "main"
-      "sidebar";
-  }
-  .side-image{
-    grid-area: "sidebar";
-  }
-  .formRegion{
-    grid-area: "main";
-  }
-}
-
 body{
   font-family: 'Landmark-Regular';
 }
 
 .container{
   width:100vw;
-}
-
-.row{
-  display: flex;
-  flex-wrap: wrap;
 }
 
 .formRegion{
@@ -38,8 +18,8 @@ body{
 }
 
 .side-image > img{
-  height:100vh;
-  width:cover;
+  height:90vh;
+  width:fit-content;
 }
 
 .formRegion > form{
@@ -74,4 +54,9 @@ body{
 }
 .form-submit:hover{
   opacity: 0.6;
+}
+
+.blktext{
+  color:black;
+  text-shadow: none;
 }
