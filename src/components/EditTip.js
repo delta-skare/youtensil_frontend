@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import '../css/TwoThird.css';
 
+
 class editTip extends Component {
 
   render() {
     return (
-      <div>
         <div>
           <h1>Edit Tip</h1>
           <p>Restaurant</p>
@@ -16,7 +16,6 @@ class editTip extends Component {
             <img src="./images/eggnog-blossoms.jpg"/>
             <button>Edit Image</button>
         </div>
-      </div>
     );
   }
 }

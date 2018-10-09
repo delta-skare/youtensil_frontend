@@ -14,8 +14,9 @@ import AddTip from './components/AddTip';
 import UserDashboard from './components/UserDashboard';
 import Landing from './components/Landing';
 import UserProfileFeed from './components/UserProfileFeed';
-import NavBar from './components/NavBar';
+import Team from './components/Team';
 import Footer from './components/Footer';
+import NavBar from './components/NavBar';
 
 ReactDOM.render(
   <div>
@@ -29,6 +30,11 @@ ReactDOM.render(
               exact
               path='/'
               component={App}
+            />
+            <Route
+              exact
+              path='/team'
+              component={Team}
             />
             <Route
               exact

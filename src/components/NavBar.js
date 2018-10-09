@@ -22,18 +22,20 @@ class NavBar extends Component {
     
         this.toggle = this.toggle.bind(this);
         this.state = {
-          isOpen: false
+          isOpen: false,
+          fixedTop: true
         };
       }
       toggle() {
         this.setState({
-          isOpen: !this.state.isOpen
+          isOpen: !this.state.isOpen,
+          fixedTop: true
         });
       }
+
       render() {
         return (
-          <div>
-            <Navbar className="navnav navbar-dark">
+            <Navbar className="navnav navbar-dark" style={{position:"fixed", width:"100vw"}}>
               <NavbarBrand href="/home"><img className="logo-img" src={logo}/></NavbarBrand>
               <NavbarToggler onClick={this.toggle} />
               <Collapse isOpen={this.state.isOpen} navbar >
@@ -64,7 +66,6 @@ class NavBar extends Component {
                 </Nav>
               </Collapse>
             </Navbar>
-          </div>
         );
       }
     }

@@ -202,32 +202,32 @@ class userDashboard extends Component {
   render() {
     let { currentProfile, form } = this.state
     return (
-        <div>
-            <div>
-                <h1>Dashboard</h1>
-                <p><img src="../images/woman-silhouette.jpg" alt="Your avatar"/></p>
-                    <button onClick={this.toggleFormField("image")}>Edit Image</button>
-                <h2>Username</h2>
-                    <p>{currentProfile.username}</p>
-                    <button onClick={this.toggleFormField("username")}>Edit Username</button>
-                    {form.username && this.createFormField("username")}
-                <h3>About</h3>
-                    <p>{currentProfile.bio}</p>
-                    <button onClick={this.toggleFormField("bio")}>Edit About</button>
-                    {form.bio && this.createFormField("bio")}
-                <h3>Favorite Foods</h3>
-                    <p>{currentProfile.food_types}</p>
-                    <button onClick={this.toggleFormField("food_types")}>Edit Foods</button>
-                    {form.food_types && this.createFormField("food_types")}
-                <h3>Email</h3>
-                    <p>Email</p>
-                    <button onClick={this.toggleFormField("email")}>Edit Email</button>
-                    {form.email && this.createFormField("email")}
-                <h3>Password</h3>
-                    <button onClick={this.toggleFormField("password")}>Edit Password</button>
-                    {form.password && this.createFormField("password")}
-            </div>
-        </div>
+          <div>
+              <div>
+                  <h1>Dashboard</h1>
+                  <p><img src="../images/woman-silhouette.jpg" alt="Your avatar"/></p>
+                      <button onClick={this.toggleFormField("image")}>Edit Image</button>
+                  <h2>Username</h2>
+                      <p>{currentProfile.username}</p>
+                      <button onClick={this.toggleFormField("username")}>Edit Username</button>
+                      {form.username && this.createFormField("username")}
+                  <h3>About</h3>
+                      <p>{currentProfile.bio}</p>
+                      <button onClick={this.toggleFormField("bio")}>Edit About</button>
+                      {form.bio && this.createFormField("bio")}
+                  <h3>Favorite Foods</h3>
+                      <p>{currentProfile.food_types}</p>
+                      <button onClick={this.toggleFormField("food_types")}>Edit Foods</button>
+                      {form.food_types && this.createFormField("food_types")}
+                  <h3>Email</h3>
+                      <p>Email</p>
+                      <button onClick={this.toggleFormField("email")}>Edit Email</button>
+                      {form.email && this.createFormField("email")}
+                  <h3>Password</h3>
+                      <button onClick={this.toggleFormField("password")}>Edit Password</button>
+                      {form.password && this.createFormField("password")}
+              </div>
+          </div>
     );
   }
 }
