@@ -96,17 +96,6 @@ class EditTip extends Component {
       )
     }
 
-  // handleFormSubmit(e){
-  //   e.preventDefault()
-  //   let { tip } = this.state
-  //   tip.user_id = this.props.userId
-  //   createTip({tip: tip})
-  //   .then(res =>{
-  //     this.props.history.replace('/dashboard')
-  //   })
-  //   .catch(err =>{ alert('Something went wrong. Please make sure all fields are filled with the appropriate information and try again.') })
-  // }
-
   render() {
     let { form, currentTip } = this.state
     console.log(this.state)
