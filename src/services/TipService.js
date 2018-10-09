@@ -13,29 +13,38 @@ const BASE = 'http://localhost:3001'
 //   })
 // }
 //
-// let getTip = function(id) {
-// 	return fetch(BASE + '/tips/' + id)
-// 	.then((resp) => {
-// 		let json = resp.json()
-// 		// console.log(json);
-// 		return json
-// 	})
-// }
-//
-// let editTip = function(id, params) {
-//   return fetch(BASE + '/tips/' + id, {
-//     body: JSON.stringify(params),
-//     headers: {
-//       'Content-Type': 'application/json'
-//     },
-//     method: "PATCH"
-//   })
-//   .then((resp) => {
-//     let json = resp.json()
-//     // console.log(json)
-//     return json
-//   })
-// }
+let getTip = function(id) {
+	return fetch(BASE + '/tips/' + id)
+	.then((resp) => {
+		let json = resp.json()
+		// console.log(json);
+		return json
+	})
+}
+
+let editTip = function(id, params) {
+  return fetch(BASE + '/tips/' + id, {
+    body: JSON.stringify(params),
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    method: "PATCH"
+  })
+  .then((resp) => {
+    let json = resp.json()
+    // console.log(json)
+    return json
+  })
+}
+
+let getUserTips = function(userId) {
+  return fetch(BASE + '/profiles/' + userId + '/tips')
+  .then((resp) => {
+    let json = resp.json()
+    console.log(json)
+    return json
+  })
+}
 
 let createTip = function(tip) {
   console.log(tip)
@@ -55,7 +64,8 @@ let createTip = function(tip) {
 
 export {
   // getTips,
-	// getOrMakeTipByUserId,
-  createTip
-  // editTip
+	getTip,
+  createTip,
+  getUserTips,
+  editTip
 }

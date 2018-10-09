@@ -56,10 +56,11 @@ class userDashboard extends Component {
   }
 
   handleImage = (url) => {
-    let { profile } = this.state
+    let { profile, currentProfile } = this.state
     editProfile(profile.id, {profile: {image: url}})
     .then(res => {
-      this.setState({currentProfile: {...profile}})
+      currentProfile.image = url
+      this.setState({ currentProfile })
     })
   }
 
@@ -214,7 +215,7 @@ class userDashboard extends Component {
         <div>
             <div>
                 <h1>Dashboard</h1>
-                <div><img src={this.state.profile.image} alt="Your avatar"/></div>
+                <div><img src={this.state.currentProfile.image} alt="Your avatar"/></div>
                     <button onClick={this.toggleFormField("image")}>Edit Image</button>
                     {form.image && <ImageUploader location="profile-images" handleImage={this.handleImage} />}
                 <h2>Username</h2>
