@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-// import '../css/Login.css';
+import '../css/TwoThird.css';
 import AuthService from '../services/AuthService';
-import NavBar from './NavBar';
-import Footer from './Footer';
 
 class Login extends Component {
   constructor(){
@@ -29,9 +27,8 @@ class Login extends Component {
 
   render() {
     return (
-      <div className="center">
-        <NavBar />
-        <div className="card">
+      <div className="container row">
+        <div className="formRegion col-8">
           <h1>Login</h1>
           <form onSubmit={this.handleFormSubmit.bind(this)}>
             <input
@@ -57,7 +54,9 @@ class Login extends Component {
             />
           </form>
         </div>
-        <Footer />
+        <div className="side-image col-4">
+          <img src='https://www.seriouseats.com/images/2015/05/20150523-shanghai-streetfood-guotie-fionareilly-slide-14-1500x1200.jpg'/>
+        </div>
       </div>
     );
   }

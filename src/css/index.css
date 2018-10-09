@@ -1,5 +1,40 @@
 body {
-  margin: 0;
-  padding: 0;
   font-family: sans-serif;
+  width: 100vw;
 }
+
+@font-face{ font-family: 'Landmark-Regular'; src: url('../Landmark-Regular.otf')}
+@font-face{ font-family: 'Landmark-Dimensional'; src: url('../Landmark-Dimensional.otf')}
+@font-face{ font-family: 'Landmark-Inline'; src: url('../Landmark-Inline.otf')}
+
+
+.footer{
+  background-color: black;
+  display: inline-block;
+  text-align: center;
+  width: 100vw;
+  height: 50px;
+  line-height: 45px;
+  position: fixed;
+  bottom: 0;
+}
+.footer > a {
+  color: white;
+  padding-right: 35px;
+}
+
+.logo-img{
+  height:2rem;
+}
+
+.navdrop{
+  background-color: black;
+  border-radius: 3px;
+}
+
+.navnav{
+  color: white;
+  background-color: black;
+  text-shadow: 2px 2px #000000;
+}
+

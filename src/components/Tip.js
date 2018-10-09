@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
+import '../css/Full.css'
 
 class Tip extends Component {
 
   render() {
     return (
       <div>
-        <div>
+        <div className="tipcard">
             <h1>Tip</h1>
                 <img src="./images/eggnog-blossoms.jpg"/>
             <h2>Tip Description</h2>

@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
-import '../css/Register.css';
+import '../css/TwoThird.css';
 import AuthService from '../services/AuthService';
-import NavBar from './NavBar';
-import Footer from './Footer';
+import sideImg from '../images/sharon-chen-352895-unsplash.jpg';
 
 class Register extends Component {
   constructor(){
@@ -30,9 +29,8 @@ class Register extends Component {
 
   render() {
     return (
-      <div className="center">
-        <NavBar />
-        <div className="card">
+      <div className="container row">
+        <div className="formRegion col-8">
           <h1>Register</h1>
           <form onSubmit={this.handleFormSubmit.bind(this)}>
             <input
@@ -66,7 +64,9 @@ class Register extends Component {
             />
           </form>
         </div>
-        <Footer />
+        <div className="side-image col-4">
+          <img src={sideImg}/>
+        </div>
       </div>
     );
   }

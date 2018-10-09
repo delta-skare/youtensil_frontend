@@ -1,0 +1,77 @@
+body {
+    font-family: 'Landmark-Regular';
+    width: 100vw;
+  }
+  
+  @font-face{ font-family: 'Landmark-Regular'; src: url('../Landmark-Regular.otf')}
+  
+  a {
+    color: white;
+    padding-right: 35px;
+    font-family: 'Landmark-Regular';
+  }
+
+  h1 {
+    font-family: 'Landmark-Inline';
+    color: white;
+    text-shadow: 2px 2px #000000;
+  }
+
+  /* Landing Page background */
+  .background{
+      text-align: center;
+      background: no-repeat center center scroll;
+      background-image: url('../images/brooke-lark-500141-unsplash.jpg');
+      background-size: cover;
+      height: 100vh;
+  }
+
+  /* .background > img{
+      width: ;
+  } */
+
+  .btn{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    transition: 0.3s opacity ease;
+    cursor: pointer;
+    text-align: center;
+    color: black;
+    background-color: white;
+  }
+
+  .btn > a{
+    color: black;
+    text-align: center;
+  }
+
+  .img-logo{
+    padding: .25rem;
+    width:80%;
+  }
+
+  .butt{
+    margin: auto;
+    margin-left: 35%;
+  }
+
+  /* .tipcard{
+    background-color: rgba(255, 255, 255, 0.308)
+  } */
+
+  .tipFeedBackground{
+      text-align: center;
+      background: no-repeat center center scroll;
+      background-image: url('../images/charles-deluvio-271645-unsplash.jpg');
+      background-size: cover;
+      height: 100vh;
+  }
+
+  .userFeedBackground{
+    text-align: center;
+      background: no-repeat center center scroll;
+      background-image: url('../images/christine-siracusa-363257-unsplash.jpg');
+      background-size: cover;
+      height: 100vh;
+  }
