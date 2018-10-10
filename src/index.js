@@ -16,6 +16,7 @@ import Landing from './components/Landing';
 import UserProfileFeed from './components/UserProfileFeed';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
+import SearchTest from './components/SearchTest';
 
 ReactDOM.render(
   <div>
@@ -74,6 +75,11 @@ ReactDOM.render(
               exact
               path="/home"
               component={Landing}
+            />
+          <Route
+            exact
+            path="/search"
+            component={SearchTest}
             />
           </Switch>
         </div>
