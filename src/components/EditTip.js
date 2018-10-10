@@ -1,24 +1,125 @@
 import React, { Component } from 'react';
 import '../css/TwoThird.css';
+import { editTip, getTip } from '../services/TipService.js'
+import ImageUploader from './ImageUploader'
+import withAuth from './withAuth.js'
 
-class editTip extends Component {
+
+class EditTip extends Component {
+  constructor(){
+    super()
+    this.state={
+      currentTip: {},
+      tip: {},
+      form: {
+        restaurant: false,
+        description: false,
+        image: false,
+        food_types: false
+      }
+    }
+  }
+
+  componentDidMount() {
+    getTip(this.props.match.params.id)
+    .then(tip => {
+      this.setState({
+        tip,
+        currentTip: {...tip}
+      })
+    })
+  }
+
+  toggleFormField = (field) => (e) => {
+    e.preventDefault()
+
+    let { form } = this.state
+    form[field] = !form[field]
+    this.setState({ form })
+  }
+
+  handleChange = (e) => {
+    let { tip } = this.state
+    tip[e.target.name] = e.target.value
+    this.setState({ tip })
+  }
+
+  handleImage = (url) => {
+    let {currentTip} = this.state
+    let submission = {tip: { image: url}}
+    editTip(this.props.match.params.id, submission)
+    .then(res =>{
+      currentTip.image = url
+      this.setState({ currentTip })
+      console.log(res)
+    })
+    .catch(err =>{ alert('Something went wrong. Please make sure all fields are filled with the appropriate information and try again.') })
+  }
+
+  handleSubmit = (parameter) => (e) => {
+    e.preventDefault()
+    let { tip, currentTip } = this.state
+    let submission = { tip: {[parameter]: tip[parameter]} }
+    editTip(this.props.match.params.id, submission)
+    .then(res =>{
+      currentTip[parameter] = tip[parameter]
+      this.setState({ currentTip })
+    })
+  }
+
+  // This creates the appropriate form field with proper inputs inside
+  createFormField = (parameter) => {
+    return (
+      <form onSubmit={this.handleSubmit(parameter)}>
+        {this._createInput(parameter)}
+        <input
+          className="form-submit"
+          value="SUBMIT"
+          type="submit"
+        />
+      </form>
+    )
+  }
+
+  // This creates the appropriate inputs for a given form
+  _createInput = (parameter) => {
+    let placeholder
+    let input = "input"
+      return (
+        <textarea
+        className = "form-item"
+        name = {parameter}
+        type = "text"
+        onChange = {this.handleChange}
+        value = {this.state.tip[parameter]}
+        />
+      )
+    }
 
   render() {
+    let { form, currentTip } = this.state
+    console.log(this.state)
     return (
       <div>
-        <div>
-          <h1>Edit Tip</h1>
-          <p>Restaurant</p>
-            <button>Edit Restaurant</button>
-          <p>Description</p>
-            <button>Edit Description</button>
-          <p>Image</p>
-            <img src="./images/eggnog-blossoms.jpg"/>
-            <button>Edit Image</button>
-        </div>
+      <h1>Edit Tip</h1>
+      <div><img src={this.state.currentTip.image} alt="Your avatar"/></div>
+          <button onClick={this.toggleFormField("image")}>Edit Image</button>
+          {form.image && <ImageUploader location="tip-images" handleImage={this.handleImage} />}
+      <h2>Restaurant</h2>
+          <p>{currentTip.restaurant}</p>
+          <button onClick={this.toggleFormField("restaurant")} className="edit-button">Edit Restaurant</button>
+          {form.restaurant && this.createFormField("restaurant")}
+      <h3>Food Types</h3>
+          <p>{currentTip.food_types}</p>
+          <button onClick={this.toggleFormField("food_types")}>Edit Food Types</button>
+          {form.food_types && this.createFormField("food_types")}
+      <h3>Description</h3>
+          <p>{currentTip.description}</p>
+          <button onClick={this.toggleFormField("description")}>Edit Description</button>
+          {form.description && this.createFormField("description")}
       </div>
     );
   }
 }
 
-export default editTip;
+export default withAuth(EditTip);

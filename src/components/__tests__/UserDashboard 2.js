@@ -8,12 +8,13 @@ import { createMemoryHistory } from 'history'
 
 // let auth = new AuthService()
 let history
-const jwt = require('jsonwebtoken');
-const token = jwt.sign({ foo: 'bar', exp: Math.floor(Date.now() / 1000) + 3000 }, 'shhhhh');
-localStorage.setItem('id_token', token);
+
+// const jwt = require('jsonwebtoken');
+// const token = jwt.sign({ foo: 'bar', exp: Math.floor(Date.now() / 1000) + 3000 }, 'shhhhh');
+// localStorage.setItem('id_token', token);
 
 beforeAll(() => {
-  history = createMemoryHistory({initialEntries: ['/dashboard']})
+  history = createMemoryHistory('/dashboard')
 })
 
 // Enzyme allows to test simulated events able to run with latest React
@@ -27,8 +28,8 @@ describe('page rendering', ()=>{
   })
 
   it('renders edit buttons', () => {
-    let mountedDashboard = shallow(<UserDashboard history={history}/>)
-    const button = mountedDashboard.find('button.edit-button')
+    let mountedDashboard = mount(<UserDashboard history={history}/>)
+    const button = mountedDashboard.find('input.form-item')
     expect(button.length).toBe(6)
   })
 

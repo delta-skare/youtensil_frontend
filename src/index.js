@@ -8,21 +8,18 @@ import Login from './components/Login';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import registerServiceWorker from './registerServiceWorker';
 import UserProfile from './components/UserProfile';
+import UserProfileFeed from './components/UserProfileFeed';
 import TipFeed from './components/TipFeed';
 import EditTip from './components/EditTip';
 import AddTip from './components/AddTip';
 import UserDashboard from './components/UserDashboard';
 import Landing from './components/Landing';
-import UserProfileFeed from './components/UserProfileFeed';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 import SearchTest from './components/SearchTest';
 
+
 ReactDOM.render(
-  <div>
-    <div>
-      <NavBar />
-    </div>
       <Router>
         <div>
           <Switch>
@@ -76,17 +73,20 @@ ReactDOM.render(
               path="/home"
               component={Landing}
             />
-          <Route
-            exact
-            path="/search"
-            component={SearchTest}
+            <Route
+              exact
+              path="/search"
+              component={SearchTest}
             />
           </Switch>
         </div>
       </Router>
-  <div>
+    <div>
       <Footer />
+    </div>
   </div>
-  </div>
+  </Router>
+
+
 , document.getElementById('root'));
 registerServiceWorker();
