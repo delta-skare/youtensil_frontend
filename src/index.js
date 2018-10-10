@@ -20,72 +20,9 @@ import SearchTest from './components/SearchTest';
 
 
 ReactDOM.render(
-      <Router>
-        <div>
-          <Switch>
-            <Route
-              exact
-              path='/'
-              component={App}
-            />
-            <Route
-              exact
-              path="/register"
-              component={Register}
-            />
-            <Route
-              exact
-              path="/login"
-              component={Login}
-            />
-            <Route
-              exact
-              path="/user"
-              component={UserProfile}
-            />
-            <Route
-              exact
-              path="/profiles"
-              component={UserProfileFeed}
-            />
-            <Route
-              exact
-              path="/tips"
-              component={TipFeed}
-            />
-            <Route
-              exact
-              path="/edittip"
-              component={EditTip}
-            />
-            <Route
-              exact
-              path="/addtip"
-              component={AddTip}
-            />
-            <Route
-              exact
-              path="/dashboard"
-              component={UserDashboard}
-            />
-            <Route
-              exact
-              path="/home"
-              component={Landing}
-            />
-            <Route
-              exact
-              path="/search"
-              component={SearchTest}
-            />
-          </Switch>
-        </div>
-      </Router>
+  <Router>
     <div>
-<<<<<<< Updated upstream
-      <Footer />
-=======
-    <NavBar />
+      <NavBar />
       <Switch>
         <Route
           exact
@@ -137,13 +74,15 @@ ReactDOM.render(
           path="/home"
           component={Landing}
         />
+        <Route
+          exact
+          path="/search"
+          component={SearchTest}
+        />
       </Switch>
-      <Route component={Footer} />
->>>>>>> Stashed changes
+      <Footer />
     </div>
-  </div>
   </Router>
-
 
 , document.getElementById('root'));
 registerServiceWorker();
