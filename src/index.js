@@ -82,7 +82,64 @@ ReactDOM.render(
         </div>
       </Router>
     <div>
+<<<<<<< Updated upstream
       <Footer />
+=======
+    <NavBar />
+      <Switch>
+        <Route
+          exact
+          path='/'
+          component={Landing}
+        />
+        <Route
+          exact
+          path="/register"
+          component={Register}
+        />
+        <Route
+          exact
+          path="/login"
+          component={Login}
+        />
+        <Route
+          exact
+          path="/user/:userId"
+          component={UserProfile}
+        />
+        <Route
+          exact
+          path="/profiles"
+          component={UserProfileFeed}
+        />
+        <Route
+          exact
+          path="/tips"
+          component={TipFeed}
+        />
+        <Route
+          exact
+          path="/tips/:id/edit"
+          component={EditTip}
+        />
+        <Route
+          exact
+          path="/addtip"
+          component={AddTip}
+        />
+        <Route
+          exact
+          path="/dashboard"
+          component={UserDashboard}
+        />
+        <Route
+          exact
+          path="/home"
+          component={Landing}
+        />
+      </Switch>
+      <Route component={Footer} />
+>>>>>>> Stashed changes
     </div>
   </div>
   </Router>

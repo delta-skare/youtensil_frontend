@@ -13,10 +13,11 @@ class userProfile extends Component {
     }
   }
 
+  // This takes the user ID of the profile page's owner and gets their tips
   componentDidMount() {
     if(this.auth.loggedIn())
       this.state.userId = this.auth.getUserId()
-    getUserTips(this.props.match.params.id)
+    getUserTips(this.props.match.params.userId)
     .then(res=> {
       console.log(res)
       this.setState({ tips: res})
@@ -30,15 +31,7 @@ class userProfile extends Component {
     })
     return (
       <div>
-        <div>
-          <h1>Profile</h1>
-            <p>Username</p>
-            <img src="./images/woman-silhoutte.jpg"/>
-            <h2>Favorite Cuisines</h2>
-                <p>Italian, and Indian</p>
-            <h3>About</h3>
-                <p>I mountain bike and work at The Andaz Hotel in downtown San Diego.</p>
-        </div>
+        <h1>Profile</h1>
         {tipList}
       </div>
     );

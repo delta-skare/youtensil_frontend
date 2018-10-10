@@ -21,7 +21,7 @@ class Tip extends Component {
 
   render() {
     let { tip, userId } = this.state
-    let edit = (<Link to={`/tips/edit/${this.props.id}`} style={{color:'black'}}>Edit Tip</Link>)
+    let edit = (<Link to={`/tips/${this.props.id}/edit`} style={{color:'black'}}>Edit Tip</Link>)
     return (
       <div>
         <div className="tipcard">
