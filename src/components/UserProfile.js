@@ -15,12 +15,13 @@ class userProfile extends Component {
 
   // This takes the user ID of the profile page's owner and gets their tips
   componentDidMount() {
+    let userId
     if(this.auth.loggedIn())
-      this.state.userId = this.auth.getUserId()
+      userId = this.auth.getUserId()
     getUserTips(this.props.match.params.userId)
     .then(res=> {
       console.log(res)
-      this.setState({ tips: res})
+      this.setState({ tips: res, userId})
     })
   }
 

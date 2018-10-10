@@ -25,7 +25,7 @@ class Tip extends Component {
     return (
       <div>
         <div className="tipcard">
-            <h1>Tip</h1>
+            <h2>{tip.restaurant}</h2>
                 <img src={tip.image}/>
             <h2>Tip Description</h2>
                 <p>{tip.description}</p>

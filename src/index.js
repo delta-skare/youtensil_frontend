@@ -16,8 +16,7 @@ import UserDashboard from './components/UserDashboard';
 import Landing from './components/Landing';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
-import SearchTest from './components/SearchTest';
-
+import RestaurantSearch from './components/RestaurantSearch';
 
 ReactDOM.render(
   <Router>
@@ -61,11 +60,6 @@ ReactDOM.render(
         />
         <Route
           exact
-          path="/addtip"
-          component={AddTip}
-        />
-        <Route
-          exact
           path="/dashboard"
           component={UserDashboard}
         />
@@ -76,8 +70,8 @@ ReactDOM.render(
         />
         <Route
           exact
-          path="/search"
-          component={SearchTest}
+          path="/addtip"
+          component={RestaurantSearch}
         />
       </Switch>
       <Footer />
