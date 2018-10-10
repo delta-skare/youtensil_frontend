@@ -4,14 +4,11 @@ import { storage } from './firebase'
 import { createTip } from '../services/TipService'
 import withAuth from './withAuth'
 
-class addTip extends Component {
+class AddTip extends Component {
   constructor(){
     super()
     this.state={
-      image: '',
-      restaurant: '',
       description: '',
-      food_types: '',
       user_id: 0
     }
   }
@@ -23,47 +20,32 @@ class addTip extends Component {
   handleImage = (url) => {
     let tip = {...this.state}
     tip.image = url
+    tip.restaurant = this.props.restaurant
+    tip.food_types = this.props.categories.map(category=>{
+      return category.title
+    }).join(", ")
     tip.user_id = this.props.userId
+    console.log(tip)
     createTip(tip)
     .then(res =>{
-
+      alert('Tip uploaded successfully')
+      this.props.history.replace('/dashboard')
       console.log(res)
     })
-    .catch(err =>{ alert('Something went wrong. Please make sure all fields are filled with the appropriate information and try again.') })
+    .catch(err =>{ alert(err) })
   }
-
-  // handleFormSubmit(e){
-  //   e.preventDefault()
-  //   let { tip } = this.state
-  //   tip.user_id = this.props.userId
-  //   createTip({tip: tip})
-  //   .then(res =>{
-  //     this.props.history.replace('/dashboard')
-  //   })
-  //   .catch(err =>{ alert('Something went wrong. Please make sure all fields are filled with the appropriate information and try again.') })
-  // }
 
   render() {
     console.log(this.state)
     return (
       <div>
       <form>
-        <input
-          className="form-item"
-          placeholder="Restaurant name"
-          name="restaurant"
-          type="text"
-          onChange={this.handleChange.bind(this)}
-          value={this.state.restaurant}
-        />
-        <input
-          className="form-item"
-          placeholder="Types of food"
-          name="food_types"
-          type="text"
-          onChange={this.handleChange.bind(this)}
-          value={this.state.food_types}
-        />
+        <h2>
+          {this.props.restaurant}
+        </h2>
+        <h3>
+          Tip Description
+        </h3>
         <textarea
           className="form-item"
           placeholder="Description"
@@ -79,4 +61,4 @@ class addTip extends Component {
   }
 }
 
-export default withAuth(addTip);
+export default withAuth(AddTip);

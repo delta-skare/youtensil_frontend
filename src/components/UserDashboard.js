@@ -215,7 +215,7 @@ class userDashboard extends Component {
         <div>
             <div>
                 <h1>Dashboard</h1>
-                <div><img src={this.state.currentProfile.image} alt="Your avatar"/></div>
+                <div><img src={currentProfile.image} alt="Your avatar"/></div>
                     <button onClick={this.toggleFormField("image")}>Edit Image</button>
                     {form.image && <ImageUploader location="profile-images" handleImage={this.handleImage} />}
                 <h2>Username</h2>

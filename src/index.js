@@ -16,77 +16,67 @@ import UserDashboard from './components/UserDashboard';
 import Landing from './components/Landing';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
-import SearchTest from './components/SearchTest';
-
+import RestaurantSearch from './components/RestaurantSearch';
 
 ReactDOM.render(
-      <Router>
-        <div>
-          <Switch>
-            <Route
-              exact
-              path='/'
-              component={App}
-            />
-            <Route
-              exact
-              path="/register"
-              component={Register}
-            />
-            <Route
-              exact
-              path="/login"
-              component={Login}
-            />
-            <Route
-              exact
-              path="/user"
-              component={UserProfile}
-            />
-            <Route
-              exact
-              path="/profiles"
-              component={UserProfileFeed}
-            />
-            <Route
-              exact
-              path="/tips"
-              component={TipFeed}
-            />
-            <Route
-              exact
-              path="/edittip"
-              component={EditTip}
-            />
-            <Route
-              exact
-              path="/addtip"
-              component={AddTip}
-            />
-            <Route
-              exact
-              path="/dashboard"
-              component={UserDashboard}
-            />
-            <Route
-              exact
-              path="/home"
-              component={Landing}
-            />
-            <Route
-              exact
-              path="/search"
-              component={SearchTest}
-            />
-          </Switch>
-        </div>
-      </Router>
+  <Router>
     <div>
+      <NavBar />
+      <Switch>
+        <Route
+          exact
+          path='/'
+          component={Landing}
+        />
+        <Route
+          exact
+          path="/register"
+          component={Register}
+        />
+        <Route
+          exact
+          path="/login"
+          component={Login}
+        />
+        <Route
+          exact
+          path="/user/:userId"
+          component={UserProfile}
+        />
+        <Route
+          exact
+          path="/profiles"
+          component={UserProfileFeed}
+        />
+        <Route
+          exact
+          path="/tips"
+          component={TipFeed}
+        />
+        <Route
+          exact
+          path="/tips/:id/edit"
+          component={EditTip}
+        />
+        <Route
+          exact
+          path="/dashboard"
+          component={UserDashboard}
+        />
+        <Route
+          exact
+          path="/home"
+          component={Landing}
+        />
+        <Route
+          exact
+          path="/addtip"
+          component={RestaurantSearch}
+        />
+      </Switch>
       <Footer />
     </div>
-  </div>
   </Router>
-
 
 , document.getElementById('root'));
 registerServiceWorker();
