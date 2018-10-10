@@ -55,12 +55,13 @@ class userDashboard extends Component {
     this.setState({ model })
   }
 
+  // This uploads the image url to our database
   handleImage = (url) => {
     let { profile, currentProfile } = this.state
     editProfile(profile.id, {profile: {image: url}})
     .then(res => {
-      currentProfile.image = url
-      this.setState({ currentProfile })
+      currentProfile.image = profile.image = url
+      this.setState({ currentProfile, profile })
     })
   }
 

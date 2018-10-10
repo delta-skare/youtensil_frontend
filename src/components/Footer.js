@@ -6,7 +6,7 @@ class Footer extends Component {
 render() {
     return (
         <div className="footer">
-            <a href='/home'>Home</a>
+            <a href='/dashboard'>Home</a>
             <a href="/addtip">Add Tip</a>
             <a href="/">Support</a>
         </div>
