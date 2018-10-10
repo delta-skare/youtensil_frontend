@@ -56,11 +56,13 @@ class userDashboard extends Component {
     this.setState({ model })
   }
 
+  // This uploads the image url to our database
   handleImage = (url) => {
-    let { profile } = this.state
+    let { profile, currentProfile } = this.state
     editProfile(profile.id, {profile: {image: url}})
     .then(res => {
-      this.setState({currentProfile: {...profile}})
+      currentProfile.image = profile.image = url
+      this.setState({ currentProfile, profile })
     })
   }
 
@@ -230,12 +232,13 @@ class userDashboard extends Component {
       <body>
         <div className="dashBoardBody">
             <div>
+
                 <div className="profileInfo">
                  <h1>Dashboard</h1>
                  {/* -------------- PROFILE IMAGE ------------------ */}
                  <div>
 
-                 <img src={this.state.currentProfile.image} alt="Your avatar" className="profile-image-container"/>
+                 <img src={currentProfile.image} alt="Your avatar" className="profile-image-container"/>
 
                  </div>
 
@@ -246,6 +249,15 @@ class userDashboard extends Component {
                 <h2 className="parameter-font">Username</h2>
 
                     <p className="parameter-font" onClick={this.toggleFormField("username")}>{currentProfile.username}</p>
+
+
+                      {/*    <h1>Dashboard</h1>
+                <div><img src={currentProfile.image} alt="Your avatar"/></div>
+                    <button onClick={this.toggleFormField("image")}>Edit Image</button>
+                    {form.image && <ImageUploader location="profile-images" handleImage={this.handleImage} />}
+                <h2>Username</h2>
+                    <p>{currentProfile.username}</p>
+                    <button onClick={this.toggleFormField("username")} className="edit-button">Edit Username</button> */}
 
                     {form.username && this.createFormField("username")}
 

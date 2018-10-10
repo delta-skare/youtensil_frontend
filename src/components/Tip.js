@@ -1,19 +1,39 @@
 import React, { Component } from 'react';
 import '../css/Full.css'
+import { getTip } from '../services/TipService'
+import { Link } from 'react-router-dom'
 
 class Tip extends Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      tip: {}
+    }
+  }
+
+  componentDidMount() {
+    let userId = parseInt(this.props.userId, 10)
+    getTip(this.props.id)
+    .then(res => {
+      this.setState({tip: res, userId})
+    })
+  }
 
   render() {
+    let { tip, userId } = this.state
+    let edit = (<Link to={`/tips/${this.props.id}/edit`} style={{color:'black'}}>Edit Tip</Link>)
     return (
       <div>
         <div className="tipcard">
-            <h1>Tip</h1>
-                <img src="./images/eggnog-blossoms.jpg"/>
+            <h1>{tip.restaurant}</h1>
+                <img src={tip.image}/>
             <h2>Tip Description</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <p>{tip.description}</p>
             <h3>Tip Category</h3>
-                <p>Ethiopian</p>
+                <p>{tip.food_types}</p>
+            { userId === tip.user_id && edit }
         </div>
+
       </div>
     );
   }
