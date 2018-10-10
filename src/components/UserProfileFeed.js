@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { getProfiles } from '../services/ProfileService.js'
+import { Link } from 'react-router-dom'
 import '../css/Feed.css'
 
 class UserProfileFeed extends Component {
@@ -21,11 +22,13 @@ class UserProfileFeed extends Component {
     let { profiles } = this.state
     let profileCards = profiles.map(profile=>{
       return (
-        <div col-lg-6 className="item">
-          <h1 children={profile.username} />
-          <p children={profile.food_types} />
-          <img src={profile.image} />
-        </div>
+        <Link to={`user/${profile.id}`}>
+          <div col-lg-6 className="item">
+            <h1 children={profile.username} />
+            <p children={profile.food_types} />
+            <img src={profile.image} />
+          </div>
+        </Link>
       )
     })
     return (
