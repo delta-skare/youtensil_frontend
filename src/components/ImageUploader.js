@@ -123,7 +123,10 @@ class ImageUploader extends Component {
           <input type="file" onChange={this.handleChange} multiple={false} accept={acceptedFileTypesArray}/>
         </div>
           <div style={style}>
-            {imgSrc !== null ? <div><img style={{objectFit:"contain", height:"100%", width:"100%"}} src={imgSrc} alt="image-preview" /></div> : ''}
+            {imgSrc !== null ?
+            <div>
+              <img src={imgSrc} style={{objectFit:"contain", height:"100%", width:"100%"}} alt="image-preview" />
+            </div> : ''}
           </div>
         <button className="upload-image" onClick={this.handleUpload}>Upload</button>
         <br/>

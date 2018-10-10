@@ -19,9 +19,9 @@ import Footer from './components/Footer';
 import RestaurantSearch from './components/RestaurantSearch';
 
 ReactDOM.render(
-  <Router>
-    <div>
-      <NavBar />
+  <div>
+    <NavBar />
+    <Router>
       <Switch>
         <Route
           exact
@@ -74,9 +74,8 @@ ReactDOM.render(
           component={RestaurantSearch}
         />
       </Switch>
-      <Footer />
-    </div>
-  </Router>
-
+    </Router>
+    <Footer style={{position:"absolute", bottom:"0"}}/>
+  </div>
 , document.getElementById('root'));
 registerServiceWorker();

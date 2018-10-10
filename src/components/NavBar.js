@@ -19,7 +19,7 @@ import '../css/index.css';
 class NavBar extends Component {
     constructor(props) {
         super(props);
-    
+
         this.toggle = this.toggle.bind(this);
         this.state = {
           isOpen: false
@@ -33,7 +33,7 @@ class NavBar extends Component {
       render() {
         return (
           <div>
-            <Navbar className="navnav navbar-dark">
+            <Navbar className="navnav navbar-dark" style={{position:"fixed", width:"100vw"}}>
               <NavbarBrand href="/home"><img className="logo-img" src={logo}/></NavbarBrand>
               <NavbarToggler onClick={this.toggle} />
               <Collapse isOpen={this.state.isOpen} navbar >

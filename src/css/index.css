@@ -6,6 +6,7 @@ body {
 @font-face{ font-family: 'Landmark-Regular'; src: url('../Landmark-Regular.otf')}
 @font-face{ font-family: 'Landmark-Dimensional'; src: url('../Landmark-Dimensional.otf')}
 @font-face{ font-family: 'Landmark-Inline'; src: url('../Landmark-Inline.otf')}
+@font-face{ font-family: 'Unisono-Lowercase'; src: url('../Unisono-Lowercase.otf')}
 
 
 .footer{
@@ -15,7 +16,6 @@ body {
   width: 100vw;
   height: 50px;
   line-height: 45px;
-  position: fixed;
   bottom: 0;
 }
 .footer > a {
@@ -33,8 +33,8 @@ body {
 }
 
 .navnav{
+  z-index: 1;
   color: white;
   background-color: black;
   text-shadow: 2px 2px #000000;
 }
-

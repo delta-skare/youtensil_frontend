@@ -3,6 +3,7 @@ import withAuth from './withAuth'
 import AuthService from '../services/AuthService'
 import ImageUploader from './ImageUploader'
 import { getOrMakeProfileByUserId as getProfile, editProfile } from '../services/ProfileService'
+import '../css/dashboard.css'
 
 class userDashboard extends Component {
   constructor(props){
@@ -122,6 +123,7 @@ class userDashboard extends Component {
 
   // This creates the appropriate form field with proper inputs inside
   createFormField = (parameter) => {
+
     return (
       <form onSubmit={this.handleSubmit(parameter)}>
         {this._createInput(parameter)}
@@ -212,34 +214,87 @@ class userDashboard extends Component {
   */
   render() {
     let { currentProfile, form } = this.state
+
+    const formAlign = {
+      flexDirection: 'column',
+      border: 'white solid 1px'
+    }
+
+    const backgroundImg = {
+      display: 'flex',
+      background: 'no-repeat center center scroll',
+      backgroundSize: 'cover',
+      backgroundColor:'black',
+      height: '100%'
+    }
+
     return (
-        <div>
+      <body>
+        <div className="dashBoardBody">
             <div>
-                <h1>Dashboard</h1>
+
+                <div className="profileInfo">
+                 <h1>Dashboard</h1>
+                 {/* -------------- PROFILE IMAGE ------------------ */}
+                 <div>
+
+                 <img src={currentProfile.image} alt="Your avatar" className="profile-image-container"/>
+
+                 </div>
+
+                 <button className="btn" className="btn" onClick={this.toggleFormField("image")}>Edit Image</button>
+                 {form.image && <ImageUploader location="profile-images" handleImage={this.handleImage}/>}
+
+                 {/* -------------- USERNAME ------------------ */}
+                <h2 className="parameter-font">Username</h2>
+
+                    <p className="parameter-font" onClick={this.toggleFormField("username")}>{currentProfile.username}</p>
+
+
+                      {/*    <h1>Dashboard</h1>
                 <div><img src={currentProfile.image} alt="Your avatar"/></div>
                     <button onClick={this.toggleFormField("image")}>Edit Image</button>
                     {form.image && <ImageUploader location="profile-images" handleImage={this.handleImage} />}
                 <h2>Username</h2>
                     <p>{currentProfile.username}</p>
-                    <button onClick={this.toggleFormField("username")} className="edit-button">Edit Username</button>
+                    <button onClick={this.toggleFormField("username")} className="edit-button">Edit Username</button> */}
+
                     {form.username && this.createFormField("username")}
-                <h3>About</h3>
-                    <p>{currentProfile.bio}</p>
-                    <button onClick={this.toggleFormField("bio")}>Edit About</button>
+
+
+                    {/* -------------- ABOUT ------------------ */}
+                <h3 className="parameter-font">About</h3>
+                    <p className="parameter-font"> {currentProfile.bio} </p>
+                    <button className="btn" onClick={this.toggleFormField("bio")}>Edit About</button>
                     {form.bio && this.createFormField("bio")}
-                <h3>Favorite Foods</h3>
-                    <p>{currentProfile.food_types}</p>
-                    <button onClick={this.toggleFormField("food_types")}>Edit Foods</button>
+
+                    {/* -------------- FAVORITE FOODS ------------------ */}
+                <h3 className="parameter-font">Favorite Foods</h3>
+                    <p className="parameter-font">{currentProfile.food_types}</p>
+                    <button className="btn" onClick={this.toggleFormField("food_types")}>Edit Foods</button>
                     {form.food_types && this.createFormField("food_types")}
-                <h3>Email</h3>
+
+                    {/* -------------- EMAIL ------------------ */}
+                <h3 className="parameter-font">Email</h3>
                     <p>Email</p>
-                    <button onClick={this.toggleFormField("email")}>Edit Email</button>
+                    <button className="btn" onClick={this.toggleFormField("email")}>Edit Email</button>
+                  <div className="form-field">
                     {form.email && this.createFormField("email")}
-                <h3>Password</h3>
-                    <button onClick={this.toggleFormField("password")}>Edit Password</button>
+                  </div>
+
+                  {/* -------------- PASSWORD ------------------ */}
+                <h3 className="parameter-font">Password</h3>
+                    <button className="btn" onClick={this.toggleFormField("password")}>Edit Password</button>
                     {form.password && this.createFormField("password")}
+                </div>
             </div>
+          <div className= "dashboard-section-container">
+            <p className="welcome-text" >WELCOME, {`${this.state.currentProfile.username}`}</p>
+            <div className="dashboard-container">
+            </div>
+          </div>
         </div>
+      </body>
     );
   }
 }
