@@ -1,0 +1,25 @@
+.dashBoardBody{
+  display: flex;
+  background: no-repeat center center scroll;
+  background-image: url('../images/food-background-img.JPG');
+  background-size: cover;
+  background-position: fixed;
+  height: 100%;
+}
+
+.profileInfo {
+  display: flex;
+  flex-direction: column;
+  width: 340px;
+  padding: 50px;
+  background-color: black;
+}
+
+.parameter-font {
+  color: white;
+}
+
+.form-field {
+  flex-direction: column;
+  align-items: stretch;
+}

@@ -78,9 +78,9 @@ ReactDOM.render(
           </Switch>
         </div>
       </Router>
-  <div>
-      <Footer />
-  </div>
+    <div>
+      <Footer style={{position:"absolute", bottom:"0"}}/>
+    </div>
   </div>
 , document.getElementById('root'));
 registerServiceWorker();

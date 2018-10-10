@@ -26,7 +26,7 @@ class addTip extends Component {
     tip.user_id = this.props.userId
     createTip(tip)
     .then(res =>{
-
+      this.props.history.replace('/profiles')
       console.log(res)
     })
     .catch(err =>{ alert('Something went wrong. Please make sure all fields are filled with the appropriate information and try again.') })
