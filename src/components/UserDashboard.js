@@ -225,40 +225,64 @@ class userDashboard extends Component {
       backgroundColor:'black',
       height: '100%'
     }
+
     return (
+      <body>
         <div className="dashBoardBody">
-          <div>
-          </div>
             <div>
                 <div className="profileInfo">
                  <h1>Dashboard</h1>
+                 {/* -------------- PROFILE IMAGE ------------------ */}
+                 <div>
+
+                 <img src={this.state.currentProfile.image} alt="Your avatar" className="profile-image-container"/>
+
+                 </div>
+
+                 <button className="btn" className="btn" onClick={this.toggleFormField("image")}>Edit Image</button>
+                 {form.image && <ImageUploader location="profile-images" handleImage={this.handleImage}/>}
+
+                 {/* -------------- USERNAME ------------------ */}
                 <h2 className="parameter-font">Username</h2>
-                    <p className="parameter-font">{currentProfile.username}</p>
-                    <button onClick={this.toggleFormField("username")} className="edit-button">Edit Username</button>
+
+                    <p className="parameter-font" onClick={this.toggleFormField("username")}>{currentProfile.username}</p>
+
                     {form.username && this.createFormField("username")}
-                    <div><img src={this.state.profile.image} alt="Your avatar"/></div>
-                    <button onClick={this.toggleFormField("image")}>Edit Image</button>
-                    {form.image && <ImageUploader location="profile-images" handleImage={this.handleImage} />}
+
+
+                    {/* -------------- ABOUT ------------------ */}
                 <h3 className="parameter-font">About</h3>
-                    <p className="parameter-font">{currentProfile.bio}</p>
-                    <button onClick={this.toggleFormField("bio")}>Edit About</button>
+                    <p className="parameter-font"> {currentProfile.bio} </p>
+                    <button className="btn" onClick={this.toggleFormField("bio")}>Edit About</button>
                     {form.bio && this.createFormField("bio")}
+
+                    {/* -------------- FAVORITE FOODS ------------------ */}
                 <h3 className="parameter-font">Favorite Foods</h3>
                     <p className="parameter-font">{currentProfile.food_types}</p>
-                    <button onClick={this.toggleFormField("food_types")}>Edit Foods</button>
+                    <button className="btn" onClick={this.toggleFormField("food_types")}>Edit Foods</button>
                     {form.food_types && this.createFormField("food_types")}
+
+                    {/* -------------- EMAIL ------------------ */}
                 <h3 className="parameter-font">Email</h3>
                     <p>Email</p>
-                    <button onClick={this.toggleFormField("email")}>Edit Email</button>
+                    <button className="btn" onClick={this.toggleFormField("email")}>Edit Email</button>
                   <div className="form-field">
                     {form.email && this.createFormField("email")}
                   </div>
+
+                  {/* -------------- PASSWORD ------------------ */}
                 <h3 className="parameter-font">Password</h3>
-                    <button onClick={this.toggleFormField("password")}>Edit Password</button>
+                    <button className="btn" onClick={this.toggleFormField("password")}>Edit Password</button>
                     {form.password && this.createFormField("password")}
                 </div>
             </div>
+          <div className= "dashboard-section-container">
+            <p className="welcome-text" >WELCOME, {`${this.state.currentProfile.username}`}</p>
+            <div className="dashboard-container">
+            </div>
+          </div>
         </div>
+      </body>
     );
   }
 }

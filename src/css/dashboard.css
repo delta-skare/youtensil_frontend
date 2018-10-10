@@ -1,25 +1,100 @@
 .dashBoardBody{
   display: flex;
+  justify-content: flex-start;
   background: no-repeat center center scroll;
   background-image: url('../images/food-background-img.JPG');
   background-size: cover;
   background-position: fixed;
   height: 100%;
+  z-index: 0;
+  /* border: solid pink 2px */
 }
 
 .profileInfo {
   display: flex;
+  justify-content: center;
   flex-direction: column;
-  width: 340px;
   padding: 50px;
-  background-color: black;
+  background-color: black
+}
+
+
+.profile-image-container {
+  /* display: flex; */
+  /* justify-content: center; */
+  margin-bottom: 12px;
+  border: solid white 2px;
+  /* border-radius: 100% */
+
+}
+
+.dashboard-section-container {
+  display: flex;
+  flex-direction: column;
+  height: 100;
+  width: 50%;
+  border: black 5px;
+  margin: 20px;
+  /* border: solid blue 2px */
+}
+
+.welcome-text {
+  font-family: Landmark-Regular;
+  font-size: 45px;
+  color: white;
+  width: 100%;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 60px;
+  margin-bottom: 20px;
+  margin-left: 20px 20px;
+  height: inherit;
+}
+
+.dashboard-container {
+  display: flex;
+  justify-content: center;
+  /* border: solid black 1px; */
+  height: 100%;
+  background-color: white;
+  opacity: 0.5;
+  border-radius: 25px;
+  /* box-shadow: 2px 2px 8px 8px #888888; */
 }
 
 .parameter-font {
   color: white;
+  border: solid white 1px;
+  display: flex;
+  justify-content: center
 }
 
 .form-field {
   flex-direction: column;
-  align-items: stretch;
+  align-items: flex-start;
+}
+
+.profile-image-avatar {
+  /* border-radius: 50%; */
+  border: solid 5px white;
+  padding: 20px
+
+}
+
+.btn {
+  border: none;
+  padding: 14px 28px;
+  font-size: 16px
+}
+
+.btn:hover {
+  background: #eee;
+}
+
+.form-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
