@@ -35,8 +35,7 @@ class RestaurantList extends Component {
 
     return(
     <div>
-      {form === false && restaurantOptions}
-      {form === true && <AddTip restaurant={name} history={this.props.history} categories={categories} />}
+      {form === true ? <AddTip restaurant={name} history={this.props.history} categories={categories} /> : restaurantOptions}
     </div>
     )
   }

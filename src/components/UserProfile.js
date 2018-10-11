@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { getUserTips } from '../services/TipService.js'
 import { getOrMakeProfileByUserId as getProfile } from '../services/ProfileService.js'
 import Tip from './Tip'
+import FollowButton from './FollowButton'
 import AuthService from '../services/AuthService.js'
 
 class userProfile extends Component {
@@ -33,7 +34,7 @@ class userProfile extends Component {
   render() {
     let { tips, userId, profile } = this.state
     let tipList = tips.map(tip => {
-      return <Tip key={tip.id} id={tip.id} userId={userId}/>
+      return <Tip key={tip.id} tipId={tip.id} userId={userId.toString()}/>
     })
     return (
       <div>
@@ -41,6 +42,7 @@ class userProfile extends Component {
         <img src={profile.image} />
         <h2 children={`About ${profile.username}`} />
         <p children={profile.bio} />
+        <FollowButton followText={"this profile"} followUserId={this.props.match.params.userId} />
         <h1 children={`How ${profile.username} eats better:`} />
         {tipList}
       </div>
