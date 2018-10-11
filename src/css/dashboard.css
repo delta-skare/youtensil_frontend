@@ -1,3 +1,7 @@
+h1 {
+  color: #FFF
+}
+
 .dashBoardBody{
   display: flex;
   justify-content: flex-start;
@@ -25,7 +29,6 @@
   margin-bottom: 12px;
   border: solid white 2px;
   /* border-radius: 100% */
-
 }
 
 .dashboard-section-container {
@@ -81,7 +84,6 @@
   /* border-radius: 50%; */
   border: solid 5px white;
   padding: 20px
-
 }
 
 .btn {
