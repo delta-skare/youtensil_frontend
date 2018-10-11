@@ -59,6 +59,9 @@ class NavBar extends Component {
                       <DropdownItem>
                         <NavLink href="/dashboard" className="navdrop">User Dashboard</NavLink>
                       </DropdownItem>
+                      <DropdownItem>
+                        <NavLink href="/addtip" className="navdrop">Add Tip</NavLink>
+                      </DropdownItem>
                     </DropdownMenu>
                   </UncontrolledDropdown>
                 </Nav>
