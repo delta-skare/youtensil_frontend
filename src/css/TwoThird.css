@@ -16,6 +16,7 @@ h1{
 
 .side-image{
   height: 100vh;
+  width: inherit;
 }
 
 .form-region > form{
