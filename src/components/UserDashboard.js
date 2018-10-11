@@ -230,16 +230,18 @@ class userDashboard extends Component {
     }
 
     return (
+
       <body>
         <div className="dashBoardBody">
+
             <div>
 
                 <div className="profileInfo">
                  <h1>Dashboard</h1>
                  {/* -------------- PROFILE IMAGE ------------------ */}
-                 <div>
+                 <div className="profile-image-container">
 
-                 <img src={currentProfile.image} alt="Your avatar" className="profile-image-container"/>
+                  <img src={currentProfile.image} alt="Your avatar" />
 
                  </div>
 

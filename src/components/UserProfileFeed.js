@@ -37,7 +37,7 @@ class UserProfileFeed extends Component {
     })
     return (
       <div className="userFeedBackground">
-        <Container>
+        <Container fluid>
           <Row>
            {profileCards}
           </Row>
