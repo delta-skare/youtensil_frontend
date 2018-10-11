@@ -4,6 +4,7 @@ import AuthService from '../services/AuthService'
 import ImageUploader from './ImageUploader'
 import { getOrMakeProfileByUserId as getProfile, editProfile } from '../services/ProfileService'
 import '../css/dashboard.css'
+import TipFeed from'./TipFeed'
 
 class userDashboard extends Component {
   constructor(props){
@@ -290,8 +291,9 @@ class userDashboard extends Component {
             </div>
           <div className= "dashboard-section-container">
             <p className="welcome-text" >WELCOME, {`${this.state.currentProfile.username}`}</p>
-            <div className="dashboard-container">
-            </div>
+
+            <TipFeed className="tipFeed"/>
+
           </div>
         </div>
       </body>
