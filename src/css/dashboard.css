@@ -14,7 +14,9 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
-  padding: 50px;
+  padding: 3rem;
+  padding-right: 3rem;
+  padding-left: 3rem;
   background-color: black
 }
 
@@ -98,4 +100,8 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+}
+
+textarea{
+  height: 150px;
 }
