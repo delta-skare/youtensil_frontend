@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import withAuth from './withAuth'
 import AuthService from '../services/AuthService'
 import ImageUploader from './ImageUploader'
+import TipFeed from './TipFeed'
 import { getOrMakeProfileByUserId as getProfile, editProfile } from '../services/ProfileService'
 import '../css/dashboard.css'
 
@@ -214,7 +215,7 @@ class userDashboard extends Component {
   */
   render() {
     let { currentProfile, form } = this.state
-
+    console.log(currentProfile)
     const formAlign = {
       flexDirection: 'column',
       border: 'white solid 1px'
@@ -229,8 +230,10 @@ class userDashboard extends Component {
     }
 
     return (
-      <body> 
-        <div className="dashBoardBody"> 
+
+      <body>
+        <div className="dashBoardBody">
+
             <div>
 
                 <div className="profileInfo">
@@ -290,6 +293,7 @@ class userDashboard extends Component {
             </div>
           <div className= "dashboard-section-container">
             <p className="welcome-text" >WELCOME, {`${this.state.currentProfile.username}`}</p>
+            {currentProfile.following ? <TipFeed username={currentProfile.username} following={currentProfile.following} /> : <p children="Tips of users you follow will appear here" /> }
             <div className="dashboard-container">
             </div>
           </div>

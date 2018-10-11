@@ -46,6 +46,15 @@ let getUserTips = function(userId) {
   })
 }
 
+let getFollowingTips = function(following) {
+  return fetch(BASE + '/tips/following/' + following)
+  .then((resp) => {
+    let json = resp.json()
+    console.log(json)
+    return json
+  })
+}
+
 let createTip = function(tip) {
   console.log(tip)
   return fetch(BASE + '/tips', {
@@ -67,5 +76,6 @@ export {
 	getTip,
   createTip,
   getUserTips,
-  editTip
+  editTip,
+	getFollowingTips
 }
