@@ -1,6 +1,7 @@
 body {
     font-family: 'Landmark-Regular';
     width: 100vw;
+    height: 100vh;
   }
   
   @font-face{ font-family: 'Landmark-Regular'; src: url('../Landmark-Regular.otf')}
@@ -51,13 +52,13 @@ body {
     height: 100vh;
   }
 
-  .tipFeedBackground{
+  /* .tipFeedBackground{
       text-align: center;
       background: no-repeat center center scroll;
       background-image: url('../images/charles-deluvio-271645-unsplash.jpg');
       background-size: cover;
       height: 100vh;
-  }
+  } */
 
   .userFeedBackground{
     text-align: center;
@@ -85,3 +86,6 @@ body {
     margin: 2rem;
   }
 
+  .restList{
+    padding-left: 3rem;
+  }

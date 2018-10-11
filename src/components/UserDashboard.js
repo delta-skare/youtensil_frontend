@@ -230,7 +230,7 @@ class userDashboard extends Component {
 
     return (
       <body>
-        <div className="dashBoardBody">
+        <div className="dashBoardBody"> 
             <div>
 
                 <div className="profileInfo">
