@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import { Container, Row, Col } from 'reactstrap';
 import '../css/TwoThird.css';
 import AuthService from '../services/AuthService';
+import loginImage from '../images/edward-guk-357344-unsplash.jpg'
 
 class Login extends Component {
   constructor(){
@@ -27,37 +29,39 @@ class Login extends Component {
 
   render() {
     return (
-      <div className="container row">
-        <div className="formRegion col-8">
-          <h1>Login</h1>
-          <form onSubmit={this.handleFormSubmit.bind(this)}>
-            <input
-              className="form-item"
-              placeholder="email goes here..."
-              name="email"
-              type="text"
-              onChange={this.handleChange.bind(this)}
-              value={this.state.email}
-            />
-            <input
-              className="form-item"
-              placeholder="Password goes here..."
-              name="password"
-              type="password"
-              onChange={this.handleChange.bind(this)}
-              value={this.state.password}
-            />
-            <input
-              className="form-submit"
-              value="SUBMIT"
-              type="submit"
-            />
-          </form>
-        </div>
-        <div className="side-image col-4">
-          <img src='https://www.seriouseats.com/images/2015/05/20150523-shanghai-streetfood-guotie-fionareilly-slide-14-1500x1200.jpg'/>
-        </div>
-      </div>
+      <Container fluid>
+        <Row>
+          <Col sm="8">
+            <h1>Login</h1>
+            <form onSubmit={this.handleFormSubmit.bind(this)} className="form-region">
+              <input
+                className="form-item"
+                placeholder="email goes here..."
+                name="email"
+                type="text"
+                onChange={this.handleChange.bind(this)}
+                value={this.state.email}
+              />
+              <input
+                className="form-item"
+                placeholder="Password goes here..."
+                name="password"
+                type="password"
+                onChange={this.handleChange.bind(this)}
+                value={this.state.password}
+              />
+              <input
+                className="form-submit"
+                value="SUBMIT"
+                type="submit"
+              />
+            </form>
+          </Col>
+          <Col sm="4">
+            <img src={loginImage} className="side-image"/>
+          </Col>
+        </Row>
+      </Container>
     );
   }
 }

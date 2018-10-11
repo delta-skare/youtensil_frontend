@@ -36,21 +36,20 @@ class RestaurantSearch extends Component {
   render() {
     return (
       <div>
-        <form onSubmit={this.handleFormSubmit}>
+        <form onSubmit={this.handleFormSubmit} className="form-region">
           <label>
-          <p>What is For Dinner?</p>
+          <h1>What is For Dinner?</h1>
           </label>
-          <input type="text" name="term" onChange={this.handleChange}/>
-
+          <input type="text" name="term" onChange={this.handleChange} className="form-item"/>
           <label>
           <p>What City Are you In?</p>
           </label>
-          <input type="text" name="location" onChange={this.handleChange}/>
+          <input type="text" name="location" onChange={this.handleChange} className="form-item"/>
 
-          <input type="submit" value="Submit"/>
+          <input type="submit" value="Submit" className="form-submit"/>
         </form>
 
-        <RestaurantList form={this.state.form} history={this.props.history} toggleForm={this.toggleForm} restaurants={this.state.results} />
+        <RestaurantList form={this.state.form} history={this.props.history} toggleForm={this.toggleForm} restaurants={this.state.results} className="form-item"/>
 
       </div>
     );

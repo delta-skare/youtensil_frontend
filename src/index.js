@@ -14,6 +14,7 @@ import EditTip from './components/EditTip';
 import AddTip from './components/AddTip';
 import UserDashboard from './components/UserDashboard';
 import Landing from './components/Landing';
+import Team from './components/Team'
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 import RestaurantSearch from './components/RestaurantSearch';
@@ -67,6 +68,11 @@ ReactDOM.render(
           exact
           path="/home"
           component={Landing}
+        />
+        <Route
+          exact
+          path="/team"
+          component={Team}
         />
         <Route
           exact

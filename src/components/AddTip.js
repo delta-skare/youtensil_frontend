@@ -3,6 +3,10 @@ import ImageUploader from './ImageUploader';
 import { storage } from './firebase'
 import { createTip } from '../services/TipService'
 import withAuth from './withAuth'
+import '../css/TwoThird.css';
+import TipImg from '../images/artur-rutkowski-61567-unsplash.jpg'
+import { Container, Row, Col } from 'reactstrap';
+
 
 class AddTip extends Component {
   constructor(){
@@ -38,25 +42,32 @@ class AddTip extends Component {
   render() {
     console.log(this.state)
     return (
-      <div>
-      <form>
-        <h2>
-          {this.props.restaurant}
-        </h2>
-        <h3>
-          Tip Description
-        </h3>
-        <textarea
-          className="form-item"
-          placeholder="Description"
-          name="description"
-          type="text"
-          onChange={this.handleChange.bind(this)}
-          value={this.state.description}
-        />
-      </form>
-      <ImageUploader location="tip-images" handleImage={this.handleImage} />
-      </div>
+      <Container fluid>
+        <Row>
+          <Col sm="8">  
+              <form className="form-region">
+                <h2>
+                  {this.props.restaurant}
+                </h2>
+                <h3>
+                  Tip Description
+                </h3>
+                <textarea
+                  className="form-item"
+                  placeholder="Description"
+                  name="description"
+                  type="text"
+                  onChange={this.handleChange.bind(this)}
+                  value={this.state.description}
+                />
+              </form>
+              <ImageUploader location="tip-images" handleImage={this.handleImage} />
+          </Col>  
+          <Col sm="4">
+            <img src={TipImg} className="side-image"/>
+          </Col>
+        </Row>      
+      </Container>
     );
   }
 }

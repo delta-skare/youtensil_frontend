@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import '../css/TwoThird.css';
 import AuthService from '../services/AuthService';
 import sideImg from '../images/sharon-chen-352895-unsplash.jpg';
+import { Container, Row, Col } from 'reactstrap';
 
 class Register extends Component {
   constructor(){
@@ -29,45 +30,47 @@ class Register extends Component {
 
   render() {
     return (
-      <div className="container row">
-        <div className="formRegion col-8">
-          <h1>Register</h1>
-          <form onSubmit={this.handleFormSubmit.bind(this)}>
-            <input
-              className="form-item"
-              placeholder="email goes here..."
-              name="email"
-              type="text"
-              onChange={this.handleChange.bind(this)}
-              value={this.state.email}
-            />
-            <input
-              className="form-item"
-              placeholder="Password goes here..."
-              name="password"
-              type="password"
-              onChange={this.handleChange.bind(this)}
-              value={this.state.password}
-            />
-            <input
-              className="form-item"
-              placeholder="Confirm password"
-              name="password_confirmation"
-              type="password"
-              onChange={this.handleChange.bind(this)}
-              value={this.state.password_confirmation}
-            />
-            <input
-              className="form-submit"
-              value="SUBMIT"
-              type="submit"
-            />
-          </form>
-        </div>
-        <div className="side-image col-4">
-          <img src={sideImg}/>
-        </div>
-      </div>
+      <Container fluid>
+        <Row> 
+          <Col sm="8">
+            <h1>Register</h1>
+            <form onSubmit={this.handleFormSubmit.bind(this)} className="form-region">
+              <input
+                className="form-item"
+                placeholder="email goes here..."
+                name="email"
+                type="text"
+                onChange={this.handleChange.bind(this)}
+                value={this.state.email}
+              />
+              <input
+                className="form-item"
+                placeholder="Password goes here..."
+                name="password"
+                type="password"
+                onChange={this.handleChange.bind(this)}
+                value={this.state.password}
+              />
+              <input
+                className="form-item"
+                placeholder="Confirm password"
+                name="password_confirmation"
+                type="password"
+                onChange={this.handleChange.bind(this)}
+                value={this.state.password_confirmation}
+              />
+              <input
+                className="form-submit"
+                value="SUBMIT"
+                type="submit"
+              />
+            </form>
+          </Col>
+          <Col sm="4">
+            <img src={sideImg} className="side-image"/>
+          </Col>
+        </Row>
+      </Container>
     );
   }
 }

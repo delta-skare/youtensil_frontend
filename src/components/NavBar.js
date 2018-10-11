@@ -33,7 +33,7 @@ class NavBar extends Component {
       render() {
         return (
           <div>
-            <Navbar className="navnav navbar-dark" style={{position:"fixed", width:"100vw"}}>
+            <Navbar className="navnav navbar-dark" style={{position:"fixed", width:"100vw", top: "0"}}>
               <NavbarBrand href="/home"><img className="logo-img" src={logo}/></NavbarBrand>
               <NavbarToggler onClick={this.toggle} />
               <Collapse isOpen={this.state.isOpen} navbar >
