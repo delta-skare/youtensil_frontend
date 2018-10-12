@@ -40,6 +40,9 @@ class userDashboard extends Component {
   componentDidMount() {
     getProfile(this.props.userId)
     .then(profile => {
+      if (profile.username === null){
+        profile.username = "New User"
+      }
       this.setState({
         profile,
         currentProfile: {...profile}
