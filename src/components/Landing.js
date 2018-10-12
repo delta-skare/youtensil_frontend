@@ -7,13 +7,13 @@ class Landing extends Component {
 
 render() {
     return (
-        <div className="background">
+        <div className="background main">
             <div>
                 <img className="img-logo" src={logo} alt="Youtensil Logo"/>
                 <div className="button">
-                    <Button><a href='/login'>login</a></Button>
+                    <Button><a href='/login'>Login</a></Button>
                     <br></br>
-                    <Button><a href='/register'>register</a></Button>
+                    <Button><a href='/register'>Register</a></Button>
                 </div>
             </div>
         </div>

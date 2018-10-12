@@ -39,7 +39,7 @@ class AddTip extends Component {
   render() {
     console.log(this.props)
     return (
-      <Container fluid>
+      <Container fluid className="main">
         <Row>
           <Col sm="8">
               <form className="form-region">

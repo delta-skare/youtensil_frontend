@@ -231,8 +231,8 @@ class userDashboard extends Component {
 
     return (
 
-      <body>
-        <div className="dashBoardBody">
+
+        <div className="dashBoardBody main">
 
             <div>
 
@@ -298,7 +298,6 @@ class userDashboard extends Component {
 
           </div>
         </div>
-      </body>
     );
   }
 }

@@ -1,4 +1,13 @@
-h1 {
+.main {
+  font-family: 'Landmark-Regular', 'Roboto', sans-serif;
+  width: 100vw;
+}
+
+@font-face{ font-family: 'Landmark-Regular'; src: url('../Landmark-Regular.otf')}
+@font-face{ font-family: 'Roboto'; src: url('https://fonts.googleapis.com/css?family=Roboto')}
+
+
+.profileInfo > h1 {
   color: #FFF
 }
 
@@ -9,7 +18,7 @@ h1 {
   background-image: url('../images/food-background-img.JPG');
   background-size: cover;
   background-position: fixed;
-  height: 100vh;
+  height: 100%;
   z-index: 0;
   /* border: solid pink 2px */
 }
@@ -51,7 +60,6 @@ h1 {
 }
 
 .welcome-text {
-  font-family: Landmark-Regular;
   font-size: 45px;
   color: white;
   width: 100%;

@@ -1,7 +1,10 @@
-body{
-  text-align: left;
-  font-family: 'Landmark-Regular';
+.main {
+  font-family: 'Landmark-Regular', 'Roboto', sans-serif;
+  width: 100vw;
 }
+
+@font-face{ font-family: 'Landmark-Regular'; src: url('../Landmark-Regular.otf')}
+@font-face{ font-family: 'Roboto'; src: url('https://fonts.googleapis.com/css?family=Roboto')}
 
 .container{
   max-width: 720px;
