@@ -30,7 +30,14 @@ h1 {
   justify-content: center;
   margin-bottom: 12px;
   border: solid white 2px;
+
+  object-fit: contain;
   /* border-radius: 100% */
+}
+
+.profile-image {
+  height: 200px;
+  width: 200px
 }
 
 .dashboard-section-container {

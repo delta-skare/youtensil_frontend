@@ -241,7 +241,7 @@ class userDashboard extends Component {
                  {/* -------------- PROFILE IMAGE ------------------ */}
                  <div className="profile-image-container">
 
-                  <img src={currentProfile.image} alt="Your avatar" />
+                  <img className="profile-image" src={currentProfile.image} alt="Your avatar" />
 
                  </div>
 
