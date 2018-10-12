@@ -125,7 +125,7 @@ class ImageUploader extends Component {
           <div style={style}>
             {imgSrc !== null ?
             <div>
-              <img src={imgSrc} style={{objectFit:"contain", height:"100%", width:"100%"}} alt="image-preview" />
+              <img src={imgSrc} style={{objectFit:"contain", height:"100%", width:"100%"}} alt="preview" />
             </div> : ''}
           </div>
         <button className="upload-image" onClick={this.handleUpload}>Upload</button>

@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
 import AddTip from './AddTip'
 import '../css/Full.css'
 
@@ -9,14 +8,16 @@ class RestaurantList extends Component {
     super(props)
     this.state = {
       name: "",
-      categories: []
+      categories: ""
     }
   }
-  handleSelect = (restaurant) => (e) => {
+  handleSelect = (e) => {
     e.preventDefault()
+    let restaurantDetails = e.target.value.split(":")
+    let name = restaurantDetails[0]
+    let categories = restaurantDetails[1]
     this.setState({
-      name: restaurant.name,
-      categories: restaurant.categories
+      name, categories
     }, this.props.toggleForm())
   }
 
@@ -28,19 +29,37 @@ class RestaurantList extends Component {
     if (restaurants.length === 0) {
       restaurantOptions = <p children="The results of your search will replace me!" />
     } else {
-      restaurantOptions = restaurants.map(restaurant => {
-      return (
-        <React.Fragment><Link key={restaurant.id} style={{color:'black'}} onClick={this.handleSelect(restaurant)} to=''>{`${restaurant.name}: ${restaurant.location.display_address.join(", ")}`}</Link><br/></React.Fragment>
+      restaurantOptions = (
+        <select
+          onChange={this.handleSelect}
+          name="email"
+          type="text"
+          value={this.state.restaurant}
+        >
+          {
+            restaurants.map(restaurant => {
+              return (
+                <option
+                  key={restaurant.id}
+                  value={`${restaurant.name}:${restaurant.categories.map(category=>{
+                    return category.title
+                  }).join(", ")}`}
+                  children={`${restaurant.name}: ${restaurant.location.display_address.join(", ")}`}
+                />
+              )
+            })
+          }
+        </select>
       )
-    })}
+    }
 
     return(
 
-    <div className="restList">
+      <div className="restList">
 
-      {form === true ? <AddTip restaurant={name} history={this.props.history} categories={categories} /> : restaurantOptions}
+        {form === true ? <AddTip restaurant={name} history={this.props.history} categories={categories} /> : restaurantOptions}
 
-    </div>
+      </div>
     )
   }
 }

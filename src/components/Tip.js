@@ -4,6 +4,8 @@ import { getTip } from '../services/TipService'
 import { Link } from 'react-router-dom'
 import FollowButton from './FollowButton'
 import { Button } from 'reactstrap'
+import { /*Row, Container, Col,*/ ListGroup, ListGroupItem } from 'reactstrap'
+
 
 class Tip extends Component {
   constructor(props){
@@ -32,15 +34,31 @@ class Tip extends Component {
       </Link>
     )
     return (
-      <div>
-        <div className="tipcard">
-          <h1>{tip.restaurant}</h1>
-            <img src={tip.image}/>
-          <h2>Tip Description</h2>
-            <p>{tip.description}</p>
-          { userId === tip.user_id ? edit : <FollowButton followUserId={tip.user_id} followText={"tip author"} /> }
+      <ListGroupItem key={tip.id} className="tip-container">
+
+        {/* ---------image container ---------- */}
+        <div className="image-container">
+          <img className="image" src={tip.image}/>
         </div>
-      </div>
+
+        {/* --------- info container ---------- */}
+        <div className="info-container">
+          <div className="top-info">
+            <p style={{border:"solid pink 1px", marginTop:"13px"}}>{this.props.username}</p>
+            { userId === tip.user_id ? edit : <FollowButton followUserId={tip.user_id} followText={"tip author"} /> }
+          </div>
+
+          <div className="middle-info">
+            <h4>{tip.restaurant}</h4>
+            <p>{tip.food_types}</p>
+          </div>
+
+          <div className="bottom-info">
+            <p>{tip.description}</p>
+          </div>
+
+        </div>
+      </ListGroupItem>
     );
   }
 }

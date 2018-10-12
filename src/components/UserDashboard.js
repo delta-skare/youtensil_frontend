@@ -5,7 +5,6 @@ import ImageUploader from './ImageUploader'
 import TipFeed from './TipFeed'
 import { getOrMakeProfileByUserId as getProfile, editProfile } from '../services/ProfileService'
 import '../css/dashboard.css'
-import TipFeed from'./TipFeed'
 
 class userDashboard extends Component {
   constructor(props){
@@ -246,7 +245,7 @@ class userDashboard extends Component {
 
                  </div>
 
-                 <button className="btn" className="btn" onClick={this.toggleFormField("image")}>Edit Image</button>
+                 <button className="btn" onClick={this.toggleFormField("image")}>Edit Image</button>
                  {form.image && <ImageUploader location="profile-images" handleImage={this.handleImage}/>}
 
                  {/* -------------- USERNAME ------------------ */}

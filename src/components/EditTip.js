@@ -87,8 +87,6 @@ class EditTip extends Component {
 
   // This creates the appropriate inputs for a given form
   _createInput = (parameter) => {
-    let placeholder
-    let input = "input"
       return (
         <textarea
         className = "form-item"
@@ -119,11 +117,11 @@ class EditTip extends Component {
               {form.description && this.createFormField("description")}
           </Col>
           <Col sm="4">
-            <img src={editTipImg} className="side-image"/>
+            <img src={editTipImg} className="side-image" alt="flavor"/>
           </Col>
         </Row>
       </Container>
-      
+
 
     );
   }

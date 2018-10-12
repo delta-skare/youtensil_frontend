@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import ImageUploader from './ImageUploader';
-import { storage } from './firebase'
 import { createTip } from '../services/TipService'
 import withAuth from './withAuth'
 import '../css/TwoThird.css';
@@ -25,9 +24,7 @@ class AddTip extends Component {
     let tip = {...this.state}
     tip.image = url
     tip.restaurant = this.props.restaurant
-    tip.food_types = this.props.categories.map(category=>{
-      return category.title
-    }).join(", ")
+    tip.food_types = this.props.categories
     tip.user_id = this.props.userId
     console.log(tip)
     createTip(tip)
@@ -40,11 +37,11 @@ class AddTip extends Component {
   }
 
   render() {
-    console.log(this.state)
+    console.log(this.props)
     return (
       <Container fluid>
         <Row>
-          <Col sm="8">  
+          <Col sm="8">
               <form className="form-region">
                 <h2>
                   {this.props.restaurant}
@@ -62,11 +59,11 @@ class AddTip extends Component {
                 />
               </form>
               <ImageUploader location="tip-images" handleImage={this.handleImage} className="form-region" />
-          </Col>  
-          <Col sm="4">
-            <img src={TipImg} className="side-image"/>
           </Col>
-        </Row>      
+          <Col sm="4">
+            <img src={TipImg} className="side-image" alt="flavor"/>
+          </Col>
+        </Row>
       </Container>
     );
   }

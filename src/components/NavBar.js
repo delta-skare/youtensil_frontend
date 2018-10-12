@@ -34,7 +34,7 @@ class NavBar extends Component {
         return (
           <div>
             <Navbar className="navnav navbar-dark" style={{position:"fixed", width:"100vw", top: "0"}}>
-              <NavbarBrand href="/home"><img className="logo-img" src={logo}/></NavbarBrand>
+              <NavbarBrand href="/home"><img className="logo-img" src={logo} alt="Youtensil Logo"/></NavbarBrand>
               <NavbarToggler onClick={this.toggle} />
               <Collapse isOpen={this.state.isOpen} navbar >
                 <Nav className="ml-auto" navbar >

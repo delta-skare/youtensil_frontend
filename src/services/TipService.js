@@ -2,22 +2,18 @@
 const BASE = 'http://localhost:3001'
 // var tipUrl = BASE + '/tips/:id'
 
-// let getTips = function() {
-//   // the function name getTips is intended to remind you of the restful rails route --> GET '/tips'.
-//   return fetch(BASE + '/tips') // this would be equivalent to going to localhost:3001/tips in your browser.
-//   .then((resp) => {
-//     // resp will be whatever you saw on the page localhost:3001/tips, it is the result of our fetch call
-//     let json = resp.json() // we want to make sure what we have is just the json part of the response
-//     // console.log(json)
-//     return json
-//   })
-// }
-//
+let getTips = function() {
+  return fetch(BASE + '/tips')
+  .then((resp) => {
+    let json = resp.json()
+    return json
+  })
+}
+
 let getTip = function(id) {
 	return fetch(BASE + '/tips/' + id)
 	.then((resp) => {
 		let json = resp.json()
-		// console.log(json);
 		return json
 	})
 }
@@ -32,7 +28,6 @@ let editTip = function(id, params) {
   })
   .then((resp) => {
     let json = resp.json()
-    // console.log(json)
     return json
   })
 }
@@ -41,7 +36,6 @@ let getUserTips = function(userId) {
   return fetch(BASE + '/profiles/' + userId + '/tips')
   .then((resp) => {
     let json = resp.json()
-    console.log(json)
     return json
   })
 }
@@ -50,7 +44,6 @@ let getFollowingTips = function(following) {
   return fetch(BASE + '/tips/following/' + following)
   .then((resp) => {
     let json = resp.json()
-    console.log(json)
     return json
   })
 }
@@ -66,13 +59,12 @@ let createTip = function(tip) {
   })
   .then((resp) => {
     let json = resp.json()
-    // console.log(json)
     return json
   })
 }
 
 export {
-  // getTips,
+  getTips,
 	getTip,
   createTip,
   getUserTips,

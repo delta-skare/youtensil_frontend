@@ -31,7 +31,7 @@ class Register extends Component {
   render() {
     return (
       <Container fluid>
-        <Row> 
+        <Row>
           <Col sm="8">
             <h1>Register</h1>
             <form onSubmit={this.handleFormSubmit.bind(this)} className="form-region">
@@ -67,7 +67,7 @@ class Register extends Component {
             </form>
           </Col>
           <Col sm="4">
-            <img src={sideImg} className="side-image"/>
+            <img src={sideImg} className="side-image" alt="flavor"/>
           </Col>
         </Row>
       </Container>
