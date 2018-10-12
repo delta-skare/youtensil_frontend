@@ -80,7 +80,7 @@ ReactDOM.render(
         />
       </Switch>
     </Router>
-    <Footer style={{position:"absolute"}}/>
+    <Footer />
   </div>
 , document.getElementById('root'));
 registerServiceWorker();
