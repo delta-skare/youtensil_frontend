@@ -2,8 +2,15 @@ import React, { Component } from 'react';
 import { Button } from 'reactstrap';
 import '../css/Full.css';
 import logo from '../images/youtensil_tagline_blk.png'
+import AuthService from '../services/AuthService'
 
 class Landing extends Component {
+componentDidMount() {
+  let Auth = new AuthService()
+  if(Auth.loggedIn()) {
+    this.props.history.replace('/dashboard')
+  }
+}
 
 render() {
     return (
