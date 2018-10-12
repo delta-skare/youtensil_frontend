@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { getOrMakeProfileByUserId as getProfile, editProfile } from '../services/ProfileService.js'
 import { Button } from 'reactstrap'
 import AuthService from '../services/AuthService.js'
+import '../css/Full.css'
 
 class FollowButton extends Component {
   constructor(props){
@@ -69,7 +70,7 @@ class FollowButton extends Component {
     let { text } = this.state
     let { followText } = this.props
     return(
-    <Button onClick={this.handleClick}>{`${text} ${followText}`}</Button>
+    <Button className="main" onClick={this.handleClick}>{`${text} ${followText}`}</Button>
     )
   }
 }

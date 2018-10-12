@@ -41,14 +41,14 @@ class userProfile extends Component {
     })
     return (
 
-      <Container>
+      <Container className="main">
         <Row>
           <Col>
             <h1 children={`${profile.username}'s Profile`} />
             <img src={profile.image} alt={`${profile.username}'s avatar'`}/>
             <h2 children={`About ${profile.username}`} />
             <p children={profile.bio} />
-            <FollowButton followText={"this profile"} followUserId={this.props.match.params.userId} />
+            <FollowButton followText={"This profile"} followUserId={this.props.match.params.userId} />
             <h1 children={`How ${profile.username} eats better:`} />
             {tipList}
           </Col>

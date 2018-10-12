@@ -39,7 +39,8 @@ class RestaurantList extends Component {
           {
             restaurants.map(restaurant => {
               return (
-                <option
+                <option 
+                  className="main"
                   key={restaurant.id}
                   value={`${restaurant.name}:${restaurant.categories.map(category=>{
                     return category.title

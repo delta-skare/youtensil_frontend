@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
-// import Tip from './Tip'
-
-// import SideImage from '../images/eggnog-blossoms.jpeg'
 import '../css/tipFeed.css'
 import { getFollowingTips, getTips } from '../services/TipService'
 import FollowButton from './FollowButton'
-import { /*Row, Container, Col,*/ ListGroup, ListGroupItem } from 'reactstrap'
+import { ListGroup, ListGroupItem } from 'reactstrap'
 
 class TipFeed extends Component {
   constructor(props){
@@ -38,7 +35,7 @@ class TipFeed extends Component {
     let { tips } = this.state
     let tipList = tips.map(tip => {
       return (
-        <ListGroupItem key={tip.id} className="tip-container">
+        <ListGroupItem key={tip.id} className="tip-container main">
 
           {/* ---------image container ---------- */}
           <div className="image-container">
