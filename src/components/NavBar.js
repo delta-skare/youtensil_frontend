@@ -13,16 +13,19 @@ import {
     DropdownItem } from 'reactstrap';
 import logo from '../images/youtensil_logo.png'
 import '../css/index.css';
+import AuthService from '../services/AuthService'
+
 
 
 
 class NavBar extends Component {
     constructor(props) {
         super(props);
-
+        this.Auth = new AuthService()
         this.toggle = this.toggle.bind(this);
         this.state = {
-          isOpen: false
+          isOpen: false,
+          userStatus: this.Auth.loggedIn
         };
       }
       toggle() {
@@ -30,7 +33,9 @@ class NavBar extends Component {
           isOpen: !this.state.isOpen
         });
       }
-      render() {
+
+
+      render() {         
         return (
           <div className="main">
             <Navbar className="navnav navbar-dark" style={{position:"fixed", width:"100vw", top: "0"}}>
@@ -39,7 +44,12 @@ class NavBar extends Component {
               <Collapse isOpen={this.state.isOpen} navbar >
                 <Nav className="ml-auto" navbar >
                   <NavItem>
-                    <NavLink href="/login" >Login</NavLink>
+                    { this.Auth.loggedIn() && 
+                      <NavLink href="/home" onClick={this.Auth.logout}>Logout</NavLink>
+                    }
+                    { !this.Auth.loggedIn() &&
+                      <NavLink href="/login">Login</NavLink>
+                    }
                   </NavItem>
                   <NavItem>
                     <NavLink href="/register" >Register</NavLink>
