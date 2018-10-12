@@ -61,7 +61,7 @@ class AddTip extends Component {
                   value={this.state.description}
                 />
               </form>
-              <ImageUploader location="tip-images" handleImage={this.handleImage} />
+              <ImageUploader location="tip-images" handleImage={this.handleImage} className="form-region" />
           </Col>  
           <Col sm="4">
             <img src={TipImg} className="side-image"/>

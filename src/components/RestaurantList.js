@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import AddTip from './AddTip'
+import '../css/Full.css'
 
 // Put this inside Search form
 class RestaurantList extends Component {
@@ -34,9 +35,11 @@ class RestaurantList extends Component {
     })}
 
     return(
-    <div>
-      {form === false && restaurantOptions}
-      {form === true && <AddTip restaurant={name} history={this.props.history} categories={categories} />}
+
+    <div className="restList">
+
+      {form === true ? <AddTip restaurant={name} history={this.props.history} categories={categories} /> : restaurantOptions}
+
     </div>
     )
   }

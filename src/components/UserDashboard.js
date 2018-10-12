@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import withAuth from './withAuth'
 import AuthService from '../services/AuthService'
 import ImageUploader from './ImageUploader'
+import TipFeed from './TipFeed'
 import { getOrMakeProfileByUserId as getProfile, editProfile } from '../services/ProfileService'
 import '../css/dashboard.css'
 import TipFeed from'./TipFeed'
@@ -215,7 +216,7 @@ class userDashboard extends Component {
   */
   render() {
     let { currentProfile, form } = this.state
-
+    console.log(currentProfile)
     const formAlign = {
       flexDirection: 'column',
       border: 'white solid 1px'
@@ -230,16 +231,18 @@ class userDashboard extends Component {
     }
 
     return (
+
       <body>
         <div className="dashBoardBody">
+
             <div>
 
                 <div className="profileInfo">
                  <h1>Dashboard</h1>
                  {/* -------------- PROFILE IMAGE ------------------ */}
-                 <div>
+                 <div className="profile-image-container">
 
-                 <img src={currentProfile.image} alt="Your avatar" className="profile-image-container"/>
+                  <img src={currentProfile.image} alt="Your avatar" />
 
                  </div>
 
@@ -292,7 +295,7 @@ class userDashboard extends Component {
           <div className= "dashboard-section-container">
             <p className="welcome-text" >WELCOME, {`${this.state.currentProfile.username}`}</p>
 
-            <TipFeed className="tipFeed"/>
+            {currentProfile.following ? <TipFeed className="tipFeed" username={currentProfile.username} following={currentProfile.following} /> : <p children="Tips of users you follow will appear here" /> }
 
           </div>
         </div>

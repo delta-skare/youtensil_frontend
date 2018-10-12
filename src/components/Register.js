@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import '../css/TwoThird.css';
 import AuthService from '../services/AuthService';
-import sideImg from '../images/sharon-chen-352895-unsplash.jpg';
+import sideImg from '../images/kristina-bratko-527491-unsplash.jpg';
 import { Container, Row, Col } from 'reactstrap';
 
 class Register extends Component {

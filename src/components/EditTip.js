@@ -3,6 +3,10 @@ import '../css/TwoThird.css';
 import { editTip, getTip } from '../services/TipService.js'
 import ImageUploader from './ImageUploader'
 import withAuth from './withAuth.js'
+import { Container, Row, Col } from 'reactstrap';
+import editTipImg from '../images/vitchakorn-koonyosying-494170-unsplash.jpg'
+
+
 
 
 class EditTip extends Component {
@@ -100,18 +104,27 @@ class EditTip extends Component {
     let { form, currentTip } = this.state
     console.log(this.state)
     return (
-      <div>
-      <h1>Edit Tip</h1>
-      <div><img src={this.state.currentTip.image} alt="Your avatar"/></div>
-          <button onClick={this.toggleFormField("image")}>Edit Image</button>
-          {form.image && <ImageUploader location="tip-images" handleImage={this.handleImage} />}
-      <h2>Restaurant</h2>
-          <p>{currentTip.restaurant}</p>
-      <h3>Description</h3>
-          <p>{currentTip.description}</p>
-          <button onClick={this.toggleFormField("description")}>Edit Description</button>
-          {form.description && this.createFormField("description")}
-      </div>
+      <Container>
+        <Row>
+          <Col sm="8">
+            <h1>Edit Tip</h1>
+              <div><img src={this.state.currentTip.image} alt="Your avatar"/></div>
+            <button onClick={this.toggleFormField("image")}>Edit Image</button>
+              {form.image && <ImageUploader location="tip-images" handleImage={this.handleImage} />}
+            <h2>Restaurant</h2>
+              <p>{currentTip.restaurant}</p>
+            <h3>Description</h3>
+              <p>{currentTip.description}</p>
+            <button onClick={this.toggleFormField("description")}>Edit Description</button>
+              {form.description && this.createFormField("description")}
+          </Col>
+          <Col sm="4">
+            <img src={editTipImg} className="side-image"/>
+          </Col>
+        </Row>
+      </Container>
+      
+
     );
   }
 }
