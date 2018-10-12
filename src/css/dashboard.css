@@ -1,4 +1,4 @@
-h1 {
+.profileInfo > h1 {
   color: #FFF
 }
 
@@ -9,7 +9,7 @@ h1 {
   background-image: url('../images/food-background-img.JPG');
   background-size: cover;
   background-position: fixed;
-  height: 100vh;
+  height: 100%;
   z-index: 0;
   /* border: solid pink 2px */
 }
