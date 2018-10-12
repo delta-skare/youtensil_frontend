@@ -23,7 +23,7 @@ class userProfile extends Component {
   componentDidMount() {
     let userId
     if(this.auth.loggedIn())
-      userId = this.auth.getUserId()
+      userId = this.auth.getUserId().toString()
     getProfile(this.props.match.params.userId)
     .then(profile=> {
       getUserTips(this.props.match.params.userId)
@@ -37,7 +37,7 @@ class userProfile extends Component {
   render() {
     let { tips, userId, profile } = this.state
     let tipList = tips.map(tip => {
-      return <Tip key={tip.id} tipId={tip.id} userId={userId.toString()}/>
+      return <Tip key={tip.id} tipId={tip.id} userId={userId}/>
     })
     return (
 
@@ -45,7 +45,7 @@ class userProfile extends Component {
         <Row>
           <Col>
             <h1 children={`${profile.username}'s Profile`} />
-            <img src={profile.image} />
+            <img src={profile.image} alt={`${profile.username}'s avatar'`}/>
             <h2 children={`About ${profile.username}`} />
             <p children={profile.bio} />
             <FollowButton followText={"this profile"} followUserId={this.props.match.params.userId} />
@@ -53,7 +53,7 @@ class userProfile extends Component {
             {tipList}
           </Col>
         </Row>
-      </Container> 
+      </Container>
 
     );
   }

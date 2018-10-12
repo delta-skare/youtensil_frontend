@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './css/index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import App from './components/App';
+// import App from './components/App';
 import Register from './components/Register';
 import Login from './components/Login';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
@@ -11,7 +11,6 @@ import UserProfile from './components/UserProfile';
 import UserProfileFeed from './components/UserProfileFeed';
 import TipFeed from './components/TipFeed';
 import EditTip from './components/EditTip';
-import AddTip from './components/AddTip';
 import UserDashboard from './components/UserDashboard';
 import Landing from './components/Landing';
 import Team from './components/Team'
@@ -81,7 +80,7 @@ ReactDOM.render(
         />
       </Switch>
     </Router>
-    <Footer style={{position:"absolute", bottom:"0"}}/>
+    <Footer style={{position:"absolute"}}/>
   </div>
 , document.getElementById('root'));
 registerServiceWorker();

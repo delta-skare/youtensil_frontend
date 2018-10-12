@@ -25,13 +25,13 @@ class UserProfileFeed extends Component {
     let profileCards = profiles.map(profile=>{
       return (
 
-        <Col style={{margin:"3rem"}} sm="3">
+        <Col key={profile.id} style={{margin:"3rem"}} sm="3">
 
           <Link to={`user/${profile.id}`}>
-            <div col-lg-6 className="item">
+            <div className="item col-lg-6">
               <h1 children={profile.username} />
               <p children={profile.food_types} />
-              <img src={profile.image} />
+              <img src={profile.image} alt={`${profile.username}'s avatar`}/>
             </div>
           </Link>
         </Col>

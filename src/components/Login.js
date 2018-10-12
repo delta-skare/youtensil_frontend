@@ -58,7 +58,7 @@ class Login extends Component {
             </form>
           </Col>
           <Col sm="4">
-            <img src={loginImage} className="side-image"/>
+            <img src={loginImage} className="side-image" alt="flavor"/>
           </Col>
         </Row>
       </Container>

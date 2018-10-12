@@ -9,7 +9,7 @@ render() {
     return (
         <div className="background">
             <div>
-                <img className="img-logo" src={logo} />
+                <img className="img-logo" src={logo} alt="Youtensil Logo"/>
                 <div className="button">
                     <Button><a href='/login'>login</a></Button>
                     <br></br>
@@ -22,4 +22,3 @@ render() {
 }
 
 export default Landing;
-

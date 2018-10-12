@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 // import Tip from './Tip'
 
-import SideImage from '../images/eggnog-blossoms.jpeg'
+// import SideImage from '../images/eggnog-blossoms.jpeg'
 import '../css/tipFeed.css'
-import { getFollowingTips } from '../services/TipService'
-import { Row, Container, Col, ListGroup, ListGroupItem } from 'reactstrap'
+import { getFollowingTips, getTips } from '../services/TipService'
+import FollowButton from './FollowButton'
+import { /*Row, Container, Col,*/ ListGroup, ListGroupItem } from 'reactstrap'
 
-class tipFeed extends Component {
+class TipFeed extends Component {
   constructor(props){
     super(props)
     this.state = {
@@ -15,22 +16,29 @@ class tipFeed extends Component {
   }
 
   componentDidMount() {
-    let followNumbers = this.props.following.split(",").map(number=>{
-      return Number(number)
-    })
-    console.log(followNumbers)
-    console.log(typeof followNumbers[1])
-    getFollowingTips(followNumbers)
-    .then(tips=> {
-      this.setState({ tips })
-    })
+    if(this.props.following !== undefined) {
+      let followNumbers = this.props.following.split(",").map(number=>{
+        return Number(number)
+      })
+      console.log(followNumbers)
+      console.log(typeof followNumbers[1])
+      getFollowingTips(followNumbers)
+      .then(tips=> {
+        this.setState({ tips })
+      })
+    } else {
+      getTips()
+      .then(tips=> {
+        this.setState({ tips })
+      })
+    }
   }
 
   render() {
     let { tips } = this.state
     let tipList = tips.map(tip => {
       return (
-        <ListGroupItem className="tip-container">
+        <ListGroupItem key={tip.id} className="tip-container">
 
           {/* ---------image container ---------- */}
           <div className="image-container">
