@@ -9,7 +9,8 @@ var config = {
    storageBucket: "youtencil-a36fd.appspot.com",
    messagingSenderId: "669056370019"
  };
- firebase.initializeApp(config);
+
+firebase.initializeApp(config);
 
 const storage = firebase.storage()
 
