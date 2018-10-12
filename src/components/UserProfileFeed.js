@@ -24,7 +24,9 @@ class UserProfileFeed extends Component {
     let { profiles } = this.state
     let profileCards = profiles.map(profile=>{
       return (
-        <Col sm="3" className="profCard">
+
+        <Col style={{margin:"3rem"}} sm="3">
+
           <Link to={`user/${profile.id}`}>
             <div col-lg-6 className="item">
               <h1 children={profile.username} />

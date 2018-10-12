@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 // import Tip from './Tip'
-import '../css/Feed.css'
+
+import SideImage from '../images/eggnog-blossoms.jpeg'
+import '../css/tipFeed.css'
 import { getFollowingTips } from '../services/TipService'
-// import { getOrMakeProfileByUserId as getProfile } from '../services/ProfileService'
+import { Row, Container, Col, ListGroup, ListGroupItem } from 'reactstrap'
 
 class tipFeed extends Component {
   constructor(props){
@@ -28,22 +30,45 @@ class tipFeed extends Component {
     let { tips } = this.state
     let tipList = tips.map(tip => {
       return (
-        <div col-3 className="item">
-          <h1>{tip.restaurant}</h1>
-          <img src={tip.image} alt="delicious food" />
-          <p>{tip.description}</p>
-        </div>
+        <ListGroupItem className="tip-container">
+
+          {/* ---------image container ---------- */}
+          <div className="image-container">
+            <img className="image" src={tip.image}/>
+          </div>
+
+          {/* --------- info container ---------- */}
+          <div className="info-container">
+            <div className="top-info">
+              <p style={{border:"solid pink 1px", marginTop:"13px"}}>{this.props.username}</p>
+              <button>Follow</button>
+            </div>
+
+            <div className="middle-info">
+              <h4>{tip.restaurant}</h4>
+              <p>{tip.food_types}</p>
+            </div>
+
+            <div className="bottom-info">
+              <p>{tip.description}</p>
+            </div>
+
+          </div>
+        </ListGroupItem>
       )
     })
 
     return (
-      <div className="tipFeedBackground">
-        <div className="container row">
-          {tipList}
-        </div>
+
+      <div>
+          <ListGroup className="listGroup-container">
+          {/* --------- tip container ---------- */}
+            {tipList}
+          </ListGroup>
+
       </div>
     );
   }
 }
 
-export default tipFeed;
+export default TipFeed;

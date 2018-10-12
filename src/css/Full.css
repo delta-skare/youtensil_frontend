@@ -2,9 +2,9 @@ body {
     font-family: 'Landmark-Regular';
     width: 100vw;
   }
-  
+
   @font-face{ font-family: 'Landmark-Regular'; src: url('../Landmark-Regular.otf')}
-  
+
   a {
     color: black;
     font-family: 'Landmark-Regular';
@@ -74,7 +74,7 @@ body {
   .team{
     margin: 3rem;
   }
-  
+
   .team > img{
     width: 10rem;
     margin: 1rem;
@@ -85,6 +85,3 @@ body {
     margin: 2rem;
   }
 
-  .restList{
-    padding-left: 3rem;
-  }

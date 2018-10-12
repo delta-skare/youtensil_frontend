@@ -1,0 +1,59 @@
+.all-tip-container {
+  display: flex;
+}
+
+.listGroup-container {
+  margin: 10px;
+  background-color: white;
+}
+
+.tip-container {
+  border: solid pink 1px;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;
+  border-radius: 25px;
+  /* height: 20%; */
+}
+
+.image-container {
+  width: 20rem;
+  border: black dotted 1px
+}
+
+.image {
+  border: solid red 1px;
+  object-fit: cover;
+  height: 100%;
+  width: 100%
+}
+
+.info-container {
+  border: solid green 1px;
+  width: 100%;
+  padding: 10px;
+}
+
+.top-info{
+  display: flex;
+  justify-content: space-between;
+  justify-content: space-around;
+  align-items: center;
+  border: blue dotted 1px;
+}
+
+.middle-info {
+  display: flex;
+  justify-content: space-between;
+  justify-content: space-around;
+  flex-direction: row;
+  border: solid red 1px;
+  padding: 0;
+  margin: 0;
+}
+
+.bottom-info {
+  border: solid blue 1px;
+  padding: 0;
+  margin: 0;
+}
