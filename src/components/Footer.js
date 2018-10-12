@@ -5,10 +5,10 @@ class Footer extends Component {
 
 render() {
     return (
-        <div className="footer">
+        <div className="footer main">
             <a href='/home'>Home</a>
             <a href="/team">Team</a>
-            <a href="/credits">Credits</a>
+            <a href="mailto:hello.youtensil@gmail.com">Support</a>
         </div>
     );
 }

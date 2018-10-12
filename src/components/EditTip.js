@@ -102,7 +102,7 @@ class EditTip extends Component {
     let { form, currentTip } = this.state
     console.log(this.state)
     return (
-      <Container>
+      <Container className="main">
         <Row>
           <Col sm="8">
             <h1>Edit Tip</h1>

@@ -30,14 +30,14 @@ class Register extends Component {
 
   render() {
     return (
-      <Container fluid>
+      <Container fluid className="main">
         <Row>
           <Col sm="8">
             <h1>Register</h1>
             <form onSubmit={this.handleFormSubmit.bind(this)} className="form-region">
               <input
                 className="form-item"
-                placeholder="email goes here..."
+                placeholder="Email goes here..."
                 name="email"
                 type="text"
                 onChange={this.handleChange.bind(this)}

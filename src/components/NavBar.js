@@ -32,7 +32,7 @@ class NavBar extends Component {
       }
       render() {
         return (
-          <div>
+          <div className="main">
             <Navbar className="navnav navbar-dark" style={{position:"fixed", width:"100vw", top: "0"}}>
               <NavbarBrand href="/home"><img className="logo-img" src={logo} alt="Youtensil Logo"/></NavbarBrand>
               <NavbarToggler onClick={this.toggle} />

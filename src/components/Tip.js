@@ -34,7 +34,7 @@ class Tip extends Component {
       </Link>
     )
     return (
-      <ListGroupItem key={tip.id} className="tip-container">
+      <ListGroupItem key={tip.id} className="tip-container main">
 
         {/* ---------image container ---------- */}
         <div className="image-container">
@@ -45,7 +45,7 @@ class Tip extends Component {
         <div className="info-container">
           <div className="top-info">
             <p style={{border:"solid pink 1px", marginTop:"13px"}}>{this.props.username}</p>
-            { userId === tip.user_id ? edit : <FollowButton followUserId={tip.user_id} followText={"tip author"} /> }
+            { userId === tip.user_id ? edit : <FollowButton followUserId={tip.user_id} followText={"Tip Author"} /> }
           </div>
 
           <div className="middle-info">

@@ -118,7 +118,7 @@ class ImageUploader extends Component {
     console.log("imgSrc = " + this.state.imgSrc);
 
     return (
-      <div>
+      <div className="main">
         <div>
           <input type="file" onChange={this.handleChange} multiple={false} accept={acceptedFileTypesArray}/>
         </div>
