@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 // import Tip from './Tip'
 
 import SideImage from '../images/eggnog-blossoms.jpeg'
-import '../css/Feed.css'
+import '../css/tipFeed.css'
 import { getFollowingTips } from '../services/TipService'
 import { Row, Container, Col, ListGroup, ListGroupItem } from 'reactstrap'
 
