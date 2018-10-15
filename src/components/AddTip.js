@@ -42,7 +42,7 @@ class AddTip extends Component {
       <Container fluid className="main">
         <Row>
           <Col sm="8">
-              <form className="form-region">
+              <form className="two-third-form-region">
                 <h2>
                   {this.props.restaurant}
                 </h2>
@@ -50,7 +50,7 @@ class AddTip extends Component {
                   Tip Description
                 </h3>
                 <textarea
-                  className="form-item"
+                  className="two-third-form-item"
                   placeholder="Description"
                   name="description"
                   type="text"
@@ -58,7 +58,7 @@ class AddTip extends Component {
                   value={this.state.description}
                 />
               </form>
-              <ImageUploader location="tip-images" handleImage={this.handleImage} className="form-region" />
+              <ImageUploader location="tip-images" handleImage={this.handleImage} className="two-third-form-region" />
           </Col>
           <Col sm="4">
             <img src={TipImg} className="side-image" alt="flavor"/>

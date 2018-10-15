@@ -32,10 +32,10 @@ class Login extends Component {
       <Container fluid className="main">
         <Row>
           <Col sm="8">
-            <h1>Login</h1>
-            <form onSubmit={this.handleFormSubmit.bind(this)} className="form-region">
+            <h1 className="log-reg-header">Login</h1>
+            <form onSubmit={this.handleFormSubmit.bind(this)} className="two-third-form-region">
               <input
-                className="form-item"
+                className="two-third-form-item"
                 placeholder="Email goes here..."
                 name="email"
                 type="text"
@@ -43,7 +43,7 @@ class Login extends Component {
                 value={this.state.email}
               />
               <input
-                className="form-item"
+                className="two-third-form-item"
                 placeholder="Password goes here..."
                 name="password"
                 type="password"
@@ -51,7 +51,7 @@ class Login extends Component {
                 value={this.state.password}
               />
               <input
-                className="form-submit"
+                className="two-third-form-submit"
                 value="SUBMIT"
                 type="submit"
               />

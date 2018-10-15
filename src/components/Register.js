@@ -33,10 +33,10 @@ class Register extends Component {
       <Container fluid className="main">
         <Row>
           <Col sm="8">
-            <h1>Register</h1>
-            <form onSubmit={this.handleFormSubmit.bind(this)} className="form-region">
+            <h1 className="log-reg-header">Register</h1>
+            <form onSubmit={this.handleFormSubmit.bind(this)} className="two-third-form-region">
               <input
-                className="form-item"
+                className="two-third-form-item"
                 placeholder="Email goes here..."
                 name="email"
                 type="text"
@@ -44,7 +44,7 @@ class Register extends Component {
                 value={this.state.email}
               />
               <input
-                className="form-item"
+                className="two-third-form-item"
                 placeholder="Password goes here..."
                 name="password"
                 type="password"
@@ -52,7 +52,7 @@ class Register extends Component {
                 value={this.state.password}
               />
               <input
-                className="form-item"
+                className="two-third-form-item"
                 placeholder="Confirm password"
                 name="password_confirmation"
                 type="password"
@@ -60,7 +60,7 @@ class Register extends Component {
                 value={this.state.password_confirmation}
               />
               <input
-                className="form-submit"
+                className="two-third-form-submit"
                 value="SUBMIT"
                 type="submit"
               />
