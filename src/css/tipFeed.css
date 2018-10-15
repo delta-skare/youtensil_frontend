@@ -18,10 +18,10 @@
 .tip-container {
   border: solid pink 1px;
   display: flex;
-  flex-direction: row;
+  flex-flow: row wrap;
   margin-bottom: 10px;
   border-radius: 25px;
-  /* height: 20%; */
+  justify-content: center;
 }
 
 .image-container {
@@ -39,6 +39,7 @@
 .info-container {
   border: solid green 1px;
   width: 100%;
+  max-width: 700px;
   padding: 10px;
 }
 

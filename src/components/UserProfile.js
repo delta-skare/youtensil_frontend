@@ -41,19 +41,26 @@ class userProfile extends Component {
     })
     return (
 
-      <Container className="main">
-        <Row>
-          <Col>
-            <h1 children={`${profile.username}'s Profile`} />
-            <img src={profile.image} alt={`${profile.username}'s avatar'`}/>
-            <h2 children={`About ${profile.username}`} />
-            <p children={profile.bio} />
-            <FollowButton followText={"This profile"} followUserId={this.props.match.params.userId} />
-            <h1 children={`How ${profile.username} eats better:`} />
-            {tipList}
-          </Col>
-        </Row>
-      </Container>
+        <Container fluid className="user-profile-body text-center">
+        <h1 children={`${profile.username}'s Profile`} />
+          <div className="upper-container">
+            <div className="profile-image-container">
+              <img src={profile.image} alt={`${profile.username}'s avatar'`}/>
+            </div>
+                <div className="about-section">
+                  <h2 children={`About ${profile.username}`} />
+                  <p children={profile.bio} />
+                  <FollowButton followText={"This Profile"} followUserId={this.props.match.params.userId} className="follow-button"/>
+            </div>
+
+
+          </div>
+          <h1 children={`How ${profile.username} eats better:`} />
+            <div className="profile-tipList">
+              {tipList}
+            </div>
+
+        </Container>
 
     );
   }

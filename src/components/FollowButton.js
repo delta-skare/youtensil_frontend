@@ -70,7 +70,7 @@ class FollowButton extends Component {
     let { text } = this.state
     let { followText } = this.props
     return(
-    <Button className="main" onClick={this.handleClick}>{`${text} ${followText}`}</Button>
+    <Button onClick={this.handleClick}>{`${text} ${followText}`}</Button>
     )
   }
 }
