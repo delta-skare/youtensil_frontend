@@ -16,7 +16,7 @@ class Team extends Component {
   render() {
     return (
         <div className="main">
-            <h1 className="text-center ">Support and Development Team</h1>
+            <h1 className="text-center team-header">Support and Development Team</h1>
                 <Container fluid>
                     <Row className="team-row">
                         <Col className="team" sm="2.4">

@@ -1,17 +1,5 @@
-.main {
-    font-family: 'Landmark-Regular', 'Roboto', sans-serif;
-  }
 
-  @font-face{ font-family: 'Landmark-Regular'; src: url('../Landmark-Regular.otf')}
-  @font-face{ font-family: 'Roboto'; src: url('https://fonts.googleapis.com/css?family=Roboto')}
-
-  a {
-    color: black;
-    font-family: 'Landmark-Regular';
-  }
-
-  h1 {
-    font-family: 'Landmark-Inline';
+  .team-header {
     color: #000000;
   }
 
