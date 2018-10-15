@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { getProfiles } from '../services/ProfileService.js'
 import { Link } from 'react-router-dom'
-import '../css/Feed.css'
+import '../css/Full.css'
 import { Container, Row, Col } from 'reactstrap';
 
 
@@ -25,10 +25,10 @@ class UserProfileFeed extends Component {
     let profileCards = profiles.map(profile=>{
       return (
 
-        <Col key={profile.id} style={{margin:"3rem"}} sm="3">
+        <Col key={profile.id} sm="3" className="team">
 
           <Link to={`user/${profile.id}`}>
-            <div className="item col-lg-6">
+            <div className="team">
               <h1 children={profile.username} />
               <p children={profile.food_types} />
               <img src={profile.image} alt={`${profile.username}'s avatar`}/>
@@ -37,10 +37,12 @@ class UserProfileFeed extends Component {
         </Col>
       )
     })
+
+
     return (
       <div className="userFeedBackground main">
         <Container fluid>
-          <Row>
+          <Row className="team-row">
            {profileCards}
           </Row>
         </Container>
