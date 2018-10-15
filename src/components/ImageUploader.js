@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 // import Dropzone from 'react-dropzone'
 import { storage } from './firebase'
+import '../css/Full.css'
 
 const imageMaxSize = 2000000
 const acceptedFileTypes = 'image/x-png, image/png, image/jpeg, image/gif'

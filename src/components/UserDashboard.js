@@ -6,6 +6,7 @@ import TipFeed from './TipFeed'
 import { getOrMakeProfileByUserId as getProfile, editProfile } from '../services/ProfileService'
 import '../css/dashboard.css'
 
+
 class userDashboard extends Component {
   constructor(props){
     super(props)
@@ -249,7 +250,7 @@ class userDashboard extends Component {
                  </div>
 
                  <button className="btn" onClick={this.toggleFormField("image")}>Edit Image</button>
-                 {form.image && <ImageUploader location="profile-images" handleImage={this.handleImage}/>}
+                 {form.image && <ImageUploader className="preview-image-container" location="profile-images" handleImage={this.handleImage}/>}
 
                  {/* -------------- USERNAME ------------------ */}
                 <h2 className="parameter-font">Username</h2>

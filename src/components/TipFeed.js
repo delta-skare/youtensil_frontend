@@ -35,7 +35,7 @@ class TipFeed extends Component {
     let { tips } = this.state
     let tipList = tips.map(tip => {
       return (
-        <ListGroupItem key={tip.id} className="tip-container main">
+        <ListGroupItem key={tip.id} className="tip-container">
 
           {/* ---------image container ---------- */}
           <div className="image-container">

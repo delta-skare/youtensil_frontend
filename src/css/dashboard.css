@@ -105,7 +105,7 @@
 .btn {
   border: none;
   padding: 14px 28px;
-  font-size: 16px
+  font-size: 16px;
 }
 
 .btn:hover {
@@ -119,5 +119,5 @@
 }
 
 .tipFeed {
-
+  width: inherit;
 }
