@@ -6,9 +6,6 @@ import withAuth from './withAuth.js'
 import { Container, Row, Col } from 'reactstrap';
 import editTipImg from '../images/vitchakorn-koonyosying-494170-unsplash.jpg'
 
-
-
-
 class EditTip extends Component {
   constructor(){
     super()

@@ -35,12 +35,16 @@ class RestaurantSearch extends Component {
 
   render() {
     return (
+
       <div style={{paddingTop: '50px'}} className="main">
         <form onSubmit={this.handleFormSubmit} className="two-third-form-region">
+
           <label>
-            <p>Restuarant/Food Type?</p>
+            <p>What is For Dinner?</p>
           </label>
+
           <input type="text" name="term" onChange={this.handleChange} placeholder="Ex. Dumplings" className="two-third-form-item"/>
+
 
           <label>
             <p>What City Are you In?</p>
@@ -59,7 +63,7 @@ class RestaurantSearch extends Component {
 
 export default RestaurantSearch;
 
-const base ='http://localhost:3001'
+const base = process.env.REACT_APP_API_URL
 let search = (term, location) => {
     console.log("preparing yelp search"
     )

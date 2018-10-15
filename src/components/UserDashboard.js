@@ -40,6 +40,9 @@ class userDashboard extends Component {
   componentDidMount() {
     getProfile(this.props.userId)
     .then(profile => {
+      if (profile.username === null){
+        profile.username = "New User"
+      }
       this.setState({
         profile,
         currentProfile: {...profile}
@@ -51,7 +54,7 @@ class userDashboard extends Component {
   // NOTE: Getting react errors here, need to check with instructors
   handleChange = (model) => (e) => {
     e.preventDefault()
-    let { profile, user } = this.state
+    let { profile, user } = Object.assign({},this.state)
 
     [model][e.target.name] = e.target.value
     this.setState({ model })
@@ -59,11 +62,12 @@ class userDashboard extends Component {
 
   // This uploads the image url to our database
   handleImage = (url) => {
-    let { profile, currentProfile } = this.state
+    let { profile, currentProfile, form } = this.state
     editProfile(profile.id, {profile: {image: url}})
     .then(res => {
       currentProfile.image = profile.image = url
-      this.setState({ currentProfile, profile })
+      form.image = false
+      this.setState({ currentProfile, profile, form })
     })
   }
 
@@ -86,7 +90,8 @@ class userDashboard extends Component {
     if (parameter === "food_types" || parameter === "username" || parameter === "bio"){
       editProfile(profile.id, profile)
       .then(res =>{
-        this.setState({currentProfile: {...profile}})
+        form[parameter] = false
+        this.setState({currentProfile: {...profile}, form})
       })
       .catch(err =>{ alert(err) })
     } else {
@@ -133,7 +138,7 @@ class userDashboard extends Component {
 
         {parameter === "email" && this._createInput("current_password_email")}
         <input
-          className="form-submit"
+          className="btn"
           value="SUBMIT"
           type="submit"
         />
@@ -173,7 +178,7 @@ class userDashboard extends Component {
 
     // Set further variables for use later
     if (parameter === "current_password" || parameter === "current_password_email") {
-      placeholder = "Current password confirmation required"
+      placeholder = "Confirm current password"
     } else if (parameter === "password_confirmation") {
       placeholder = "Confirm new password"
     } else {
@@ -237,45 +242,49 @@ class userDashboard extends Component {
             <div>
 
                 <div className="profileInfo">
-                 <h1>Dashboard</h1>
-                 {/* -------------- PROFILE IMAGE ------------------ */}
-                 <div className="profile-image-container">
+                  <h1>Dashboard</h1>
+                  {/* -------------- PROFILE IMAGE ------------------ */}
 
-                  <img src={currentProfile.image} alt="Your avatar" />
+                  {
+                    form.image
+                    ? <ImageUploader location="profile-images" handleImage={this.handleImage} />
+                    : <div className="profile-image-container">
+                        <img className="profile-image" src={currentProfile.image} alt="Your avatar" />
+                      </div>
+                  }
 
-                 </div>
+                  <button className="btn" onClick={this.toggleFormField("image")}>Edit Avatar</button>
 
-                 <button className="btn" onClick={this.toggleFormField("image")}>Edit Image</button>
-                 {form.image && <ImageUploader location="profile-images" handleImage={this.handleImage}/>}
+                  {/* -------------- USERNAME ------------------ */}
+                  <h2 className="parameter-font">Username</h2>
 
-                 {/* -------------- USERNAME ------------------ */}
-                <h2 className="parameter-font">Username</h2>
+                  {
+                    form.username
+                    ? this.createFormField("username")
+                    : <p className="parameter-font" onClick={this.toggleFormField("username")}>
+                        {currentProfile.username}
+                      </p>
+                  }
 
-                    <p className="parameter-font" onClick={this.toggleFormField("username")}>{currentProfile.username}</p>
+                  {/* -------------- ABOUT ------------------ */}
+                  <h3 className="parameter-font">About</h3>
+                  {
+                    form.bio
+                    ? this.createFormField("bio")
+                    : <p className="parameter-font" onClick={this.toggleFormField("bio")}>
+                        {currentProfile.bio}
+                      </p>
+                  }
 
-
-                      {/*    <h1>Dashboard</h1>
-                <div><img src={currentProfile.image} alt="Your avatar"/></div>
-                    <button onClick={this.toggleFormField("image")}>Edit Image</button>
-                    {form.image && <ImageUploader location="profile-images" handleImage={this.handleImage} />}
-                <h2>Username</h2>
-                    <p>{currentProfile.username}</p>
-                    <button onClick={this.toggleFormField("username")} className="edit-button">Edit Username</button> */}
-
-                    {form.username && this.createFormField("username")}
-
-
-                    {/* -------------- ABOUT ------------------ */}
-                <h3 className="parameter-font">About</h3>
-                    <p className="parameter-font"> {currentProfile.bio} </p>
-                    <button className="btn" onClick={this.toggleFormField("bio")}>Edit About</button>
-                    {form.bio && this.createFormField("bio")}
-
-                    {/* -------------- FAVORITE FOODS ------------------ */}
-                <h3 className="parameter-font">Favorite Foods</h3>
-                    <p className="parameter-font">{currentProfile.food_types}</p>
-                    <button className="btn" onClick={this.toggleFormField("food_types")}>Edit Foods</button>
-                    {form.food_types && this.createFormField("food_types")}
+                  {/* -------------- FAVORITE FOODS ------------------ */}
+                  <h3 className="parameter-font">Favorite Foods</h3>
+                  {
+                    form.food_types
+                    ? this.createFormField("food_types")
+                    : <p className="parameter-font" onClick={this.toggleFormField("food_types")}>
+                        {currentProfile.food_types}
+                      </p>
+                  }
 
                     {/* -------------- EMAIL ------------------ */}
                 <h3 className="parameter-font">Email</h3>

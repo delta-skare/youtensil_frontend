@@ -1,5 +1,5 @@
 // the address of our rails backend, saved as a constant value, because we never want to accidently change it
-const BASE = 'http://localhost:3001'
+const BASE = process.env.REACT_APP_API_URL
 // var profileUrl = BASE + '/profiles/:id'
 
 let getProfiles = function() {

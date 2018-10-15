@@ -2,7 +2,7 @@ import decode from 'jwt-decode';
 
 export default class AuthService {
   constructor(domain) {
-    this.domain = domain || 'http://localhost:3001' // We can pass in the backend server, or use a default for dev
+    this.domain = domain || process.env.REACT_APP_API_URL // We can pass in the backend server, or use a default for dev
     this.fetch = this.fetch.bind(this)
     this.login = this.login.bind(this)
     this.getUserId = this.getUserId.bind(this)

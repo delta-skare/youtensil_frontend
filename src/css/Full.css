@@ -1,3 +1,4 @@
+
   .team-header {
     color: #000000;
   }
@@ -72,3 +73,46 @@
     margin: 2rem;
   }
 
+  .profile-tipList {
+    border: dotted black 1px;
+    display: flex;
+    flex-flow: row wrap;
+    padding-right: 2rem;
+  }
+
+
+
+.user-profile-body {
+  display: flex;
+  justify-content: center;
+  flex-flow: column wrap;
+  border: solid red 1px;
+}
+
+.upper-container {
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
+  vertical-align: middle;
+}
+
+.follow-button {
+  width: 10vw;
+}
+
+.about-section {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border: solid black 1px;
+  padding: 10px;
+}
+
+.profile-image-container {
+  width: 280px;
+  height: 380px;
+}
+
+.profile-image-container > img {
+  width: inherit;
+}
