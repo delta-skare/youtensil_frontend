@@ -38,14 +38,14 @@ class RestaurantSearch extends Component {
       <div style={{paddingTop: '50px'}}>
         <form onSubmit={this.handleFormSubmit} className="form-region">
           <label>
-            <p>What is For Dinner?</p>
+            <p children={'Search for your restaurant:'} />
           </label>
-          <input type="text" name="term" onChange={this.handleChange} className="form-item"/>
+          <input type="text" name="term" placeholder={`e.g. fish, Hodad's`} onChange={this.handleChange} className="form-item"/>
 
           <label>
-            <p>What City Are you In?</p>
+            <p>Where are you?</p>
           </label>
-          <input type="text" name="location" onChange={this.handleChange} className="form-item"/>
+          <input type="text" name="location" placeholder={'e.g. San Diego, NY, 503 J st.'} onChange={this.handleChange} className="form-item"/>
 
           <input type="submit" value="Submit" className="form-submit"/>
         </form>
