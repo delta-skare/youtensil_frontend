@@ -102,8 +102,8 @@ class ImageUploader extends Component {
   render() {
     const {imgSrc} = this.state
     const style = {
-      height: '40vh',
-      width: '40vh',
+      height: '200px',
+      width: '200px',
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
@@ -118,7 +118,7 @@ class ImageUploader extends Component {
     console.log("imgSrc = " + this.state.imgSrc);
 
     return (
-      <div className="main">
+      <div>
         <div>
           <input type="file" onChange={this.handleChange} multiple={false} accept={acceptedFileTypesArray}/>
         </div>
@@ -128,7 +128,7 @@ class ImageUploader extends Component {
               <img src={imgSrc} style={{objectFit:"contain", height:"100%", width:"100%"}} alt="preview" />
             </div> : ''}
           </div>
-        <button className="upload-image" onClick={this.handleUpload}>Upload</button>
+        <button onClick={this.handleUpload}>Upload</button>
         <br/>
       </div>
     );

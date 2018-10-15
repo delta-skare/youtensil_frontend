@@ -28,10 +28,10 @@ class UserProfileFeed extends Component {
         <Col key={profile.id} style={{margin:"3rem"}} sm="3">
 
           <Link to={`user/${profile.id}`}>
-            <div className="item col-lg-6">
+            <div className="item col-lg-12">
               <h1 children={profile.username} />
               <p children={profile.food_types} />
-              <img src={profile.image} alt={`${profile.username}'s avatar`}/>
+              <img className="profile-image" src={profile.image} alt={`${profile.username}'s avatar`}/>
             </div>
           </Link>
         </Col>

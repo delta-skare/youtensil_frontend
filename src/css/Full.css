@@ -1,6 +1,6 @@
 .main {
     font-family: 'Landmark-Regular', 'Roboto', sans-serif;
-    width: 100vw;
+    /* width: 100vw; */
   }
 
   @font-face{ font-family: 'Landmark-Regular'; src: url('../Landmark-Regular.otf')}
@@ -85,4 +85,3 @@
     width: 2rem;
     margin: 2rem;
   }
-
