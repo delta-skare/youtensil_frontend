@@ -108,10 +108,10 @@ class EditTip extends Component {
               {form.image && <ImageUploader location="tip-images" handleImage={this.handleImage} />}
             <h2>Restaurant</h2>
               <p>{currentTip.restaurant}</p>
+              <button onClick={this.toggleFormField("description")}>Edit Description</button>
+              {form.description && this.createFormField("description")}
             <h3>Description</h3>
               <p>{currentTip.description}</p>
-            <button onClick={this.toggleFormField("description")}>Edit Description</button>
-              {form.description && this.createFormField("description")}
           </Col>
           <Col sm="4">
             <img src={editTipImg} className="side-image" alt="flavor"/>

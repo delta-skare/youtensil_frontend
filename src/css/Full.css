@@ -1,5 +1,18 @@
 
-  .team-header {
+.main {
+    font-family: 'Landmark-Regular', 'Roboto', sans-serif;
+  }
+
+  @font-face{ font-family: 'Landmark-Regular'; src: url('../Landmark-Regular.otf')}
+  @font-face{ font-family: 'Roboto'; src: url('https://fonts.googleapis.com/css?family=Roboto')}
+
+  a {
+    color: black;
+    font-family: 'Landmark-Regular', 'Roboto', sans-serif;
+  }
+
+  h1 {
+    font-family: 'Landmark-Inline', 'Roboto', sans-serif;
     color: #000000;
   }
 
@@ -52,7 +65,7 @@
       background: no-repeat center center scroll;
       background-image: url('../images/christine-siracusa-363257-unsplash.jpg');
       background-size: cover;
-      height: 100vh;
+      height: 100%;
   }
 
   .team-row{
@@ -87,6 +100,7 @@
   justify-content: center;
   flex-flow: column wrap;
   border: solid red 1px;
+  margin-bottom: 45px;
 }
 
 .upper-container {

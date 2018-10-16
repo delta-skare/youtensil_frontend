@@ -5,6 +5,7 @@ import TipFeed from './TipFeed'
 import { getOrMakeProfileByUserId as getProfile } from '../services/ProfileService'
 import '../css/dashboard.css'
 
+
 class userDashboard extends Component {
   constructor(props){
     super(props)
@@ -70,16 +71,22 @@ class userDashboard extends Component {
 
     return (
 
+      <div className="dashBoardBody">
 
-        <div className="dashBoardBody main">
+        <div className="dashboard-background-image"></div>
+
+          <div className="background-animation"></div>
+
 
           <div className= "dashboard-section-container">
             <p className="welcome-text" >WELCOME, {`${this.state.profile.username}`}</p>
 
+
             {profile.following ? <TipFeed className="tipFeed" userId={this.props.userId} following={profile.following} /> : <p children="Tips of users you follow will appear here" /> }
 
           </div>
-        </div>
+
+      </div>
     );
   }
 }

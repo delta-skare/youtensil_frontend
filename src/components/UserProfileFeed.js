@@ -43,8 +43,8 @@ class UserProfileFeed extends Component {
 
     return (
       <div className="userFeedBackground main">
-        <Container fluid>
-          <Row className="team-row">
+        <Container>
+          <Row>
            {profileCards}
           </Row>
         </Container>
