@@ -5,31 +5,29 @@ import { Link } from 'react-router-dom'
 import FollowButton from './FollowButton'
 import { Button } from 'reactstrap'
 import { /*Row, Container, Col,*/ ListGroup, ListGroupItem } from 'reactstrap'
-
+import { getOrMakeProfileByUserId as getProfile } from '../services/ProfileService.js'
 
 class Tip extends Component {
   constructor(props){
     super(props)
     this.state = {
-      tip: {}
+      username: ""
     }
   }
 
-  // This gets the tip with the desired Id
-  // The tip's user_id is set to string to work with FollowButton and showing edit button
   componentDidMount() {
-    getTip(this.props.tipId)
-    .then(res => {
-      res.user_id = res.user_id.toString()
-      this.setState({tip: res})
+    getProfile(this.props.tip.user_id)
+    .then(profile=> {
+      this.setState({username: profile.username})
     })
   }
 
   render() {
-    let { tip } = this.state
-    let { userId } = this.props
+    let {  username } = this.state
+    let { userId, tip } = this.props
+    tip.user_id = tip.user_id.toString()
     let edit = (
-      <Link to={`/tips/${this.props.tipId}/edit`} style={{color:'black', textDecoration:'none'}}>
+      <Link to={`/tips/${tip.id}/edit`} style={{color:'black', textDecoration:'none'}}>
         <Button>Edit Tip</Button>
       </Link>
     )
@@ -44,7 +42,7 @@ class Tip extends Component {
         {/* --------- info container ---------- */}
         <div className="info-container">
           <div className="top-info">
-            <p style={{border:"solid pink 1px", marginTop:"13px"}}>{this.props.username}</p>
+            <p style={{border:"solid pink 1px", marginTop:"13px"}}>{username}</p>
             { userId === tip.user_id ? edit : <FollowButton followUserId={tip.user_id} followText={"Tip Author"} /> }
           </div>
 
