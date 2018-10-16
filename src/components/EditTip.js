@@ -74,7 +74,7 @@ class EditTip extends Component {
       <form onSubmit={this.handleSubmit(parameter)}>
         {this._createInput(parameter)}
         <input
-          className="form-submit"
+          className="two-third-form-submit"
           value="SUBMIT"
           type="submit"
         />
@@ -86,7 +86,7 @@ class EditTip extends Component {
   _createInput = (parameter) => {
       return (
         <textarea
-        className = "form-item"
+        className = "two-third-form-item"
         name = {parameter}
         type = "text"
         onChange = {this.handleChange}

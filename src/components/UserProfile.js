@@ -229,6 +229,7 @@ class userProfile extends Component {
     })
     return (
 
+
       <div className="main">
         { currentProfile.user_id === userId
           ? <div >
@@ -298,6 +299,7 @@ class userProfile extends Component {
             {tipList}
 
       </div>
+
 
     );
   }
