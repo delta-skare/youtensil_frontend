@@ -236,72 +236,19 @@ class userDashboard extends Component {
     return (
 
 
-        <div className="dashBoardBody main">
+      <div className="dashBoardBody">
 
-            <div>
+        <div className="dashboard-background-image"></div>
 
-                <div className="profileInfo">
-                 <h1>Dashboard</h1>
-                 {/* -------------- PROFILE IMAGE ------------------ */}
-                 <div className="profile-image-container">
+          <div className="background-animation"></div>
 
-                  <img className="profile-image" src={currentProfile.image} alt="Your avatar" />
-
-                 </div>
-
-                 <button className="btn" onClick={this.toggleFormField("image")}>Edit Image</button>
-                 {form.image && <ImageUploader className="preview-image-container" location="profile-images" handleImage={this.handleImage}/>}
-
-                 {/* -------------- USERNAME ------------------ */}
-                <h2 className="parameter-font">Username</h2>
-
-                    <p className="parameter-font" onClick={this.toggleFormField("username")}>{currentProfile.username}</p>
-
-
-                      {/*    <h1>Dashboard</h1>
-                <div><img src={currentProfile.image} alt="Your avatar"/></div>
-                    <button onClick={this.toggleFormField("image")}>Edit Image</button>
-                    {form.image && <ImageUploader location="profile-images" handleImage={this.handleImage} />}
-                <h2>Username</h2>
-                    <p>{currentProfile.username}</p>
-                    <button onClick={this.toggleFormField("username")} className="edit-button">Edit Username</button> */}
-
-                    {form.username && this.createFormField("username")}
-
-
-                    {/* -------------- ABOUT ------------------ */}
-                <h3 className="parameter-font">About</h3>
-                    <p className="parameter-font"> {currentProfile.bio} </p>
-                    <button className="btn" onClick={this.toggleFormField("bio")}>Edit About</button>
-                    {form.bio && this.createFormField("bio")}
-
-                    {/* -------------- FAVORITE FOODS ------------------ */}
-                <h3 className="parameter-font">Favorite Foods</h3>
-                    <p className="parameter-font">{currentProfile.food_types}</p>
-                    <button className="btn" onClick={this.toggleFormField("food_types")}>Edit Foods</button>
-                    {form.food_types && this.createFormField("food_types")}
-
-                    {/* -------------- EMAIL ------------------ */}
-                <h3 className="parameter-font">Email</h3>
-                    <p>Email</p>
-                    <button className="btn" onClick={this.toggleFormField("email")}>Edit Email</button>
-                  <div className="form-field">
-                    {form.email && this.createFormField("email")}
-                  </div>
-
-                  {/* -------------- PASSWORD ------------------ */}
-                <h3 className="parameter-font">Password</h3>
-                    <button className="btn" onClick={this.toggleFormField("password")}>Edit Password</button>
-                    {form.password && this.createFormField("password")}
-                </div>
-            </div>
           <div className= "dashboard-section-container">
             <p className="welcome-text" >WELCOME, {`${this.state.currentProfile.username}`}</p>
 
-            {currentProfile.following ? <TipFeed className="tipFeed" username={currentProfile.username} following={currentProfile.following} /> : <p children="Tips of users you follow will appear here" /> }
-
+            {currentProfile.following ? <TipFeed username={currentProfile.username} following={currentProfile.following} /> : <p children="Tips of users you follow will appear here" /> }
           </div>
-        </div>
+
+      </div>
     );
   }
 }
