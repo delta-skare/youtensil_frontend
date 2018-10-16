@@ -10,8 +10,7 @@ class FollowButton extends Component {
     this.auth = new AuthService()
     this.state = {
       following: [],
-      userId: 0,
-      text: 'Follow'
+      userId: 0
     }
   }
 
@@ -33,7 +32,7 @@ class FollowButton extends Component {
   // This occurs on button-click
   handleClick = (e) => {
     e.preventDefault()
-    let { following, text } = this.state
+    let { following } = this.state
     let { followUserId } = this.props
     console.log(typeof followUserId)
     let joinedFollowing, submission
@@ -56,19 +55,24 @@ class FollowButton extends Component {
     .then(res=>{
       if (following.includes(`${followUserId}`)) {
         alert('User added to your feed')
-        text = 'Unfollow '
       } else {
         alert('User removed from your feed')
-        text = 'Follow'
       }
-      this.setState({following, text})
+      this.setState({ following })
     })
     .catch(err => alert('Please make sure you are properly logged in to follow'))
   }
 
   render() {
-    let { text } = this.state
-    let { followText } = this.props
+    let { following } = this.state
+    let { followText, followUserId } = this.props
+    let text
+    if (following.includes(`${followUserId}`)) {
+      text = 'Unfollow'
+    } else {
+      text = 'Follow'
+    }
+
     return(
     <Button onClick={this.handleClick}>{`${text} ${followText}`}</Button>
     )

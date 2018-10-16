@@ -36,10 +36,11 @@ class RestaurantList extends Component {
           type="text"
           value={this.state.restaurant}
         >
+          <option hidden disabled selected value children={'Select a restaurant'} />
           {
             restaurants.map(restaurant => {
               return (
-                <option 
+                <option
                   className="main"
                   key={restaurant.id}
                   value={`${restaurant.name}:${restaurant.categories.map(category=>{
