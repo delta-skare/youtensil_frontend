@@ -18,13 +18,13 @@ class Landing extends Component {
         {redirect}
           <div>
             <img className="img-logo" src={logo} alt="Youtensil Logo"/>
-            <div className="button">
+            <div>
               <Link to="/login"  style={{textDecoration:'none'}}>
-                <Button>Login</Button>
+                <Button className="landing-buttons">Login</Button>
               </Link>
                 <br></br>
               <Link to="/register"  style={{textDecoration:'none'}}>
-                <Button>Register</Button>
+                <Button className="landing-buttons">Register</Button>
               </Link>
             </div>
           </div>

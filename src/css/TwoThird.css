@@ -30,6 +30,7 @@
   height: 30px;
   width: 16rem;
   border: 1px solid grey;
+  font-family: 'Roboto', sans-serif;
 }
 
 .two-third-form-submit{
@@ -41,6 +42,7 @@
   transition: 0.3s opacity ease;
   cursor: pointer;
   margin-bottom: 2rem;
+  font-family: 'Roboto', sans-serif;
 }
 .two-third-form-submit:hover{
   opacity: 0.6;
