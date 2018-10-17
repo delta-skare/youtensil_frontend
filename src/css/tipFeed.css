@@ -7,9 +7,24 @@
 @font-face{ font-family: 'Landmark-Regular'; src: url('../Landmark-Regular.otf')}
 @font-face{ font-family: 'Roboto'; src: url('https://fonts.googleapis.com/css?family=Roboto')}
 
+.card{
+  -webkit-box-shadow: -15px 13px 45px -8px rgba(0,0,0,0.6);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 .card-container {
-display: flex;
-flex-direction: row;
+  display: flex;
+  flex-direction: row;
+}
+
+.card-image-container {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
 }
 
 .all-tip-container {

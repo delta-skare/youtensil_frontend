@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import '../css/Full.css'
+import '../css/tipFeed.css'
 import { getTip } from '../services/TipService'
 import { Link } from 'react-router-dom'
 import FollowButton from './FollowButton'
-import { Button } from 'reactstrap'
-import { /*Row, Container, Col,*/ ListGroup, ListGroupItem } from 'reactstrap'
+import { ListGroup, ListGroupItem, Card, CardImg, CardText, CardBody,
+  CardTitle, CardSubtitle, Button, Container, Row, Col } from 'reactstrap'
 import { getOrMakeProfileByUserId as getProfile } from '../services/ProfileService.js'
 
 class Tip extends Component {
@@ -32,31 +32,26 @@ class Tip extends Component {
       </Link>
     )
     return (
-      <ListGroupItem key={tip.id} className="tip-container main">
+        <Col sm="4">
+          <Card tip={tip.id} style={{marginBottom:"20px"}} className="card">
+          <header className="card-header" className="card-header">
+          <Link to={`/user/${tip.user_id}`}>
+            {username}
+          </Link>
+          { userId === tip.user_id ? edit : <FollowButton followUserId={tip.user_id} followText=""/> }
+          </header>
 
-        {/* ---------image container ---------- */}
-        <div className="image-container">
-          <img className="image" src={tip.image}/>
-        </div>
-
-        {/* --------- info container ---------- */}
-        <div className="info-container">
-          <div className="top-info">
-            <p style={{border:"solid pink 1px", marginTop:"13px"}}>{username}</p>
-            { userId === tip.user_id ? edit : <FollowButton followUserId={tip.user_id} followText={"Tip Author"} /> }
+          <div className="card-image-container">
+            <CardImg top width="100%" src={tip.image} alt="Card image cap"/>
           </div>
+            <CardBody style={{padding:"25px"}}>
+              <CardTitle size="sm">{tip.restaurant}</CardTitle>
+              <CardSubtitle style={{color:"#E88126"}}>{tip.food_types}</CardSubtitle>
 
-          <div className="middle-info">
-            <h4>{tip.restaurant}</h4>
-            <p>{tip.food_types}</p>
-          </div>
-
-          <div className="bottom-info">
-            <p>{tip.description}</p>
-          </div>
-
-        </div>
-      </ListGroupItem>
+              <CardText style={{marginTop:"8px", color:"#5A5959"}}>{tip.description}</CardText>
+            </CardBody>
+          </Card>
+        </Col>
     );
   }
 }

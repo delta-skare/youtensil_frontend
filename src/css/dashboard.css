@@ -10,8 +10,7 @@
   background-position: cover;
   height: 100%;
   z-index: -1;
-  background: linear-gradient(45deg, rgba(233,242,247,1) 0%, rgba(206,222,232,1) 24%, rgba(167,195,211,1) 99%, rgba(209,237,255,1) 100%);
-  /* border: solid pink 2px */
+  background: -webkit-linear-gradient(45deg, rgba(255,255,255,1) 0%, rgba(254,145,11,1) 100%);  
 }
 
 .dashboard-background-image {
@@ -127,9 +126,9 @@
 }
 
 .btn {
-  border: none;
+  /* border: none;
   padding: 14px 28px;
-  font-size: 16px;
+  font-size: 16px; */
 }
 
 .btn:hover {

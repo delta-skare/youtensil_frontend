@@ -74,7 +74,7 @@ class FollowButton extends Component {
     }
 
     return(
-    <Button onClick={this.handleClick}>{`${text} ${followText}`}</Button>
+    <Button color="secondary" size="xs" onClick={this.handleClick}>{`${text} ${followText}`}</Button>
     )
   }
 }
