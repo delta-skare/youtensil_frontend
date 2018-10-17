@@ -6,41 +6,16 @@
   @font-face{ font-family: 'Landmark-Regular'; src: url('../Landmark-Regular.otf')}
   @font-face{ font-family: 'Roboto'; src: url('https://fonts.googleapis.com/css?family=Roboto')}
 
-  a {
-    color: black;
-    font-family: 'Landmark-Regular', 'Roboto', sans-serif;
-  }
-
-  h1 {
-    font-family: 'Landmark-Inline', 'Roboto', sans-serif;
-    color: #000000;
-  }
-
-  .btn{
-    /* display: flex;
-    flex-direction: column;
-    margin-bottom: 1rem;
-    transition: 0.3s opacity ease;
-    cursor: pointer;
-    text-align: center;
-    color: black;
-    background-color: white; */
-  }
-
-  .btn > a{
-    color: black;
-    text-align: center;
-  }
-
   .img-logo{
     padding: .25rem;
     width: 40%;
     margin: 4rem;
   }
 
-  .button{
-    margin: auto;
-    margin-left: 35%;
+  .landing-buttons{
+    margin-top: 1rem;
+    margin-right: 20%;
+    padding: .5rem;
   }
 
   /* Landing Page background */
@@ -51,14 +26,6 @@
     background-size: cover;
     height: 100vh;
   }
-
-  /* .tipFeedBackground{
-      text-align: center;
-      background: no-repeat center center scroll;
-      background-image: url('../images/charles-deluvio-271645-unsplash.jpg');
-      background-size: cover;
-      height: 100vh;
-  } */
 
   .userFeedBackground{
     text-align: center;
