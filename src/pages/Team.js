@@ -9,8 +9,6 @@ import GitHub from '../images/github2.png'
 import LinkedIn from '../images/linkedin2.png'
 import { Container, Row, Col } from 'reactstrap';
 
-
-
 class Team extends Component {
 
   render() {

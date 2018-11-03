@@ -1,9 +1,7 @@
-import React, { Component } from 'react'
+import React from 'react'
 import '../css/index.css';
 
-class Footer extends Component {
-
-render() {
+function Footer() {
     return (
         <div className="footer main">
             <a href='/home'>Home</a>
@@ -11,7 +9,6 @@ render() {
             <a href="mailto:hello.youtensil@gmail.com">Support</a>
         </div>
     );
-}
 }
 
 export default Footer;

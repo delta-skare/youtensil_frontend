@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Landing from '../Landing'
+import Landing from '../../pages/Landing'
 import Enzyme, { mount,shallow,render } from 'enzyme'
 import { Router, MemoryRouter } from 'react-router-dom'
 import Adapter from 'enzyme-adapter-react-16'
@@ -30,7 +30,7 @@ describe('component rendering', ()=>{
     expect(button.at(0).props().children).toEqual("Login")
     expect(button.at(1).props().children).toEqual("Register")
   })
-  // 
+  //
   // it('redirects to Dashboard if logged in', () => {
   //   let mountedLanding = mount(<MemoryRouter><Landing /></MemoryRouter>)
   //
