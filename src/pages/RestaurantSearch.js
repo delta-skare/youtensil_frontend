@@ -2,8 +2,7 @@ import React, {Component} from 'react';
 import '../css/TwoThird.css';
 import RestaurantList from "../components/RestaurantList";
 
-// put this inside tip
-class RestaurantSearch extends Component {
+export default class RestaurantSearch extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -28,7 +27,7 @@ class RestaurantSearch extends Component {
         let {term, location} = this.state
         search(term, location)
             .then(res => {
-                console.log(res)
+                if (res === null) return alert('Please ensure fields are properly filled.')
                 this.setState({results: res, form: false})
             })
     }
@@ -65,8 +64,6 @@ class RestaurantSearch extends Component {
         );
     }
 }
-
-export default RestaurantSearch;
 
 const base = process.env.REACT_APP_API_URL
 let search = (term, location) => {

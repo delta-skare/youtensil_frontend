@@ -34,7 +34,7 @@ class userDashboard extends Component {
                 image: false,
                 email: false
             },
-            tips: {}
+            tips: []
         }
     }
 

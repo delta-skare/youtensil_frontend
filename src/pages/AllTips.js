@@ -6,7 +6,7 @@ class AllTips extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            tips: {}
+            tips: []
         }
     }
 
@@ -19,7 +19,9 @@ class AllTips extends Component {
 
     render() {
         return (
-            <TipFeed userId={"0"} tips={this.state.tips}/>
+            <div className="main">
+                <TipFeed userId={"0"} tips={this.state.tips}/>
+            </div>
         );
     }
 }
