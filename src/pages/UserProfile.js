@@ -236,7 +236,7 @@ class userProfile extends Component {
         return (
 
 
-            <div className="main">
+            <div className="main" style={{height: `${tips.length ? 'auto' : '96vh'}`}}>
                 {currentProfile.user_id === userId
                     ? <div>
                         <h1>Dashboard</h1>
@@ -295,7 +295,7 @@ class userProfile extends Component {
                     :
                     <div>
                         <h1 children={`${currentProfile.username}'s Profile`}/>
-                        <img src={currentProfile.image} alt={`${currentProfile.username}'s avatar'`}/>
+                        <img src={currentProfile.image} alt={`${currentProfile.username}'s avatar`}/>
                         <h2 children={`${currentProfile.username}`}/>
                         <p children={currentProfile.bio}/>
                         <FollowButton followText={"This profile"} followUserId={this.props.match.params.userId}/>

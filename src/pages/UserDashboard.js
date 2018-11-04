@@ -75,7 +75,7 @@ class userDashboard extends Component {
 
         return (
 
-            <div className="dashBoardBody">
+            <div className="dashBoardBody main">
 
                 <div className="dashboard-background-image"></div>
 

@@ -3,7 +3,7 @@ import '../css/index.css';
 
 function Footer() {
     return (
-        <div className="footer main">
+        <div className="footer">
             <a href='/home'>Home</a>
             <a href="/team">Team</a>
             <a href="mailto:hello.youtensil@gmail.com">Support</a>

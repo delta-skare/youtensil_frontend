@@ -13,7 +13,7 @@ class Team extends Component {
 
   render() {
     return (
-        <div className="main">
+        <div className="main" style={{height: '96vh'}}>
             <h1 className="text-center team-header">Support and Development Team</h1>
                 <Container fluid>
                     <Row className="team-row">
