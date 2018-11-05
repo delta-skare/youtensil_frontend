@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import '../css/TwoThird.css';
 import RestaurantList from "../components/RestaurantList";
 import withAuth from "../components/withAuth";
+import {Button, Col, Row} from "reactstrap";
 
 class RestaurantSearch extends Component {
     constructor(props) {
@@ -38,24 +39,30 @@ class RestaurantSearch extends Component {
 
             <div style={{paddingTop: '50px', height: `${this.state.form ? 'auto' : '96vh'}`}} className="main">
                 <form onSubmit={this.handleFormSubmit} className="two-third-form-region">
+                    <Row form style={{width: '100%'}}>
+                        <div style={{display: 'flex', justifyContent: 'left'}}>
+                            <Col>
+                                <label>
+                                    <p children={'Search for your restaurant:'}/>
+                                </label>
+                                <input type="text" name="term" placeholder="e.g. fish, Hodad's"
+                                       onChange={this.handleChange}
+                                       className="two-third-form-item"/>
+                            </Col>
 
-                    <label>
-                        <p children={'Search for your restaurant:'}/>
-                    </label>
+                            <Col>
+                                <label>
+                                    <p>Where are you?</p>
+                                </label>
 
-                    <input type="text" name="term" placeholder="e.g. fish, Hodad's" onChange={this.handleChange}
-                           className="two-third-form-item"/>
-
-
-                    <label>
-                        <p>Where are you?</p>
-                    </label>
-
-                    <input type="text" name="location" placeholder="e.g. San Diego, NY, 503 J st."
-                           onChange={this.handleChange} className="two-third-form-item"/>
-
-
-                    <input type="submit" value="Submit" className="two-third-form-submit"/>
+                                <input type="text" name="location" placeholder="e.g. San Diego, NY, 503 J st."
+                                       onChange={this.handleChange} className="two-third-form-item"/>
+                            </Col>
+                            <Col style={{alignSelf: 'center'}}>
+                                <Button type="submit" >Submit</Button>
+                            </Col>
+                        </div>
+                    </Row>
                 </form>
 
                 <RestaurantList form={this.state.form} history={this.props.history} toggleForm={this.toggleForm}
