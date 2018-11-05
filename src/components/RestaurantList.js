@@ -8,22 +8,24 @@ class RestaurantList extends Component {
         super(props)
         this.state = {
             name: "",
-            categories: ""
+            categories: "",
+            imageUrl: "",
         }
     }
 
     handleSelect = (e) => {
         e.preventDefault()
-        let restaurantDetails = e.target.value.split(":")
+        let restaurantDetails = e.target.value.split("~")
         let name = restaurantDetails[0]
         let categories = restaurantDetails[1]
+        let imageUrl = restaurantDetails[2] ? restaurantDetails[2] : 'artur-rutkowski-61567-unsplash.jpg'
         this.setState({
-            name, categories
+            name, categories, imageUrl
         }, this.props.toggleForm())
     }
 
     render() {
-        let {name, categories} = this.state
+        let {name, categories, imageUrl} = this.state
         let {restaurants, form} = this.props
         let restaurantOptions
 
@@ -43,9 +45,9 @@ class RestaurantList extends Component {
                                 <option
                                     className="main"
                                     key={restaurant.id}
-                                    value={`${restaurant.name}:${restaurant.categories.map(category => {
+                                    value={`${restaurant.name}~${restaurant.categories.map(category => {
                                         return category.title
-                                    }).join(", ")}`}
+                                    }).join(", ")}~${restaurant.image_url}`}
                                     children={`${restaurant.name}: ${restaurant.location.display_address.join(", ")}`}
                                 />
                             )
@@ -59,7 +61,7 @@ class RestaurantList extends Component {
 
             <div className="restList">
 
-                {form === true ? <AddTip restaurant={name} history={this.props.history}
+                {form === true ? <AddTip restaurant={name} history={this.props.history} imageUrl={imageUrl}
                                          categories={categories}/> : restaurantOptions}
 
             </div>

@@ -7,7 +7,7 @@ import Register from './pages/Register';
 import Login from './pages/Login';
 import registerServiceWorker from './registerServiceWorker';
 import UserProfile from './pages/UserProfile';
-import UserProfileFeed from './components/UserProfileFeed';
+import UserProfileFeed from './pages/UserProfileFeed';
 import EditTip from './pages/EditTip';
 import UserDashboard from './pages/UserDashboard';
 import Landing from './pages/Landing';

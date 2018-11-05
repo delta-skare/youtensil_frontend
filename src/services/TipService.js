@@ -10,14 +10,14 @@ let getTips = function () {
 }
 
 let getTip = function (id) {
-    return fetch(`tipUrl/${id}`)
+    return fetch(tipUrl + '/' + id)
         .then((resp) => {
             return resp.json()
         })
 }
 
 let editTip = function (id, params) {
-    return fetch(`tipUrl/${id}`, {
+    return fetch(tipUrl + '/' + id, {
         body: JSON.stringify(params),
         headers: {
             'Content-Type': 'application/json'
@@ -37,7 +37,7 @@ let getUserTips = function (userId) {
 }
 
 let getFollowingTips = function (following) {
-    return fetch(BASE + '/tips/following/' + following)
+    return fetch(tipUrl + '/following/' + following)
         .then((resp) => {
             return resp.json()
         })
@@ -45,7 +45,7 @@ let getFollowingTips = function (following) {
 
 let createTip = function (tip) {
     console.log(tip)
-    return fetch(BASE + '/tips', {
+    return fetch(tipUrl, {
         body: JSON.stringify({tip: tip}),  // <- we need to stringify the json for fetch
         headers: {  // <- We specify that we're sending JSON, and expect JSON back
             'Content-Type': 'application/json'

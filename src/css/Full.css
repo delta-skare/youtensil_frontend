@@ -1,99 +1,102 @@
 
 .main {
     font-family: 'Landmark-Regular', 'Roboto', sans-serif;
-  }
+}
 
-  @font-face{ font-family: 'Landmark-Regular'; src: url('../Landmark-Regular.otf')}
-  @font-face{ font-family: 'Roboto'; src: url('https://fonts.googleapis.com/css?family=Roboto')}
+@font-face {
+    font-family: 'Landmark-Regular';
+    src: url('../Landmark-Regular.otf')
+}
 
-  .img-logo{
+@font-face {
+    font-family: 'Roboto';
+    src: url('https://fonts.googleapis.com/css?family=Roboto')
+}
+
+.img-logo {
     padding: .25rem;
     width: 40%;
     margin: 4rem;
-  }
+}
 
-  .landing-buttons{
+.landing-buttons {
     margin-top: 1rem;
     margin-right: 20%;
     padding: .5rem;
-  }
+}
 
-  /* Landing Page background */
-  .background{
+/* Landing Page background */
+.background {
     text-align: center;
     background: no-repeat center center scroll;
     background-image: url('../images/brooke-lark-500141-unsplash.jpg');
     background-size: cover;
     height: 100vh;
-  }
+}
 
-  .userFeedBackground{
+.userFeedBackground {
     text-align: center;
-      background: no-repeat center center scroll;
-      background-image: url('../images/christine-siracusa-363257-unsplash.jpg');
-      background-size: cover;
-      height: 100%;
-  }
+    background: url('../images/christine-siracusa-363257-unsplash.jpg') no-repeat scroll center center;
+    background-size: cover;
+}
 
-  .team-row{
+.team-row {
     justify-content: center;
-  }
+}
 
-  .team{
+.team {
     margin: 3rem;
-  }
+}
 
-  .team > img{
+.team > img {
     width: 10rem;
     margin: 1rem;
-  }
+}
 
-  .icon{
+.icon {
     width: 2rem;
     margin: 2rem;
-  }
+}
 
-  .profile-tipList {
+.profile-tipList {
     border: dotted black 1px;
     display: flex;
     flex-flow: row wrap;
     padding-right: 2rem;
-  }
-
-
+}
 
 .user-profile-body {
-  display: flex;
-  justify-content: center;
-  flex-flow: column wrap;
-  border: solid red 1px;
-  margin-bottom: 45px;
+    display: flex;
+    justify-content: center;
+    flex-flow: column wrap;
+    border: solid red 1px;
+    margin-bottom: 45px;
 }
 
 .upper-container {
-  display: flex;
-  justify-content: center;
-  flex-flow: row wrap;
-  vertical-align: middle;
+    display: flex;
+    justify-content: center;
+    flex-flow: row wrap;
+    vertical-align: middle;
 }
 
 .follow-button {
-  width: 10vw;
+    width: 10vw;
 }
 
 .about-section {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  border: solid black 1px;
-  padding: 10px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border: solid black 1px;
+    padding: 10px;
 }
 
 .profile-image-container {
-  width: 280px;
-  height: 380px;
+    width: 280px;
+    height: 380px;
 }
 
 .profile-image-container > img {
-  width: inherit;
+    width: inherit;
 }

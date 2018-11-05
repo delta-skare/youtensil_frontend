@@ -3,7 +3,6 @@ import ImageUploader from './ImageUploader';
 import {createTip} from '../services/TipService'
 import withAuth from './withAuth'
 import '../css/TwoThird.css';
-import TipImg from '../images/artur-rutkowski-61567-unsplash.jpg'
 import {Container, Row, Col} from 'reactstrap';
 
 
@@ -40,7 +39,7 @@ class AddTip extends Component {
     render() {
         console.log(this.props)
         return (
-            <Container fluid className="main">
+            <Container fluid style={{overflowX: 'hidden'}}>
                 <Row>
                     <Col sm="8">
                         <form className="two-third-form-region">
@@ -62,7 +61,9 @@ class AddTip extends Component {
                                        className="two-third-form-region"/>
                     </Col>
                     <Col sm="4">
-                        <img src={TipImg} className="side-image" alt="flavor"/>
+                        <div >
+                            <img src={this.props.imageUrl} className="side-image" alt="flavor"/>
+                        </div>
                     </Col>
                 </Row>
             </Container>

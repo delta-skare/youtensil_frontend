@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import '../css/TwoThird.css';
 import RestaurantList from "../components/RestaurantList";
+import withAuth from "../components/withAuth";
 
-export default class RestaurantSearch extends Component {
+class RestaurantSearch extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -35,7 +36,7 @@ export default class RestaurantSearch extends Component {
     render() {
         return (
 
-            <div style={{paddingTop: '50px'}} className="main">
+            <div style={{paddingTop: '50px', height: `${this.state.form ? 'auto' : '96vh'}`}} className="main">
                 <form onSubmit={this.handleFormSubmit} className="two-third-form-region">
 
                     <label>
@@ -83,3 +84,4 @@ let search = (term, location) => {
         })
 
 }
+export default withAuth(RestaurantSearch)
