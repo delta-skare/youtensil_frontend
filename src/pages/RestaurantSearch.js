@@ -2,7 +2,8 @@ import React, {Component} from 'react';
 import '../css/TwoThird.css';
 import RestaurantList from "../components/RestaurantList";
 import withAuth from "../components/withAuth";
-import {Button, Col, Row} from "reactstrap";
+import {Button, Col, Container, Input, Row} from "reactstrap";
+import AddTip from "../components/AddTip";
 
 class RestaurantSearch extends Component {
     constructor(props) {
@@ -11,7 +12,10 @@ class RestaurantSearch extends Component {
             term: "",
             location: "",
             results: [],
-            form: false
+            form: false,
+            name: "",
+            categories: "",
+            imageUrl: "",
         }
     }
 
@@ -19,8 +23,8 @@ class RestaurantSearch extends Component {
         this.setState({[e.target.name]: e.target.value})
     }
 
-    toggleForm = () => {
-        this.setState({form: true})
+    toggleForm = (name, categories, imageUrl) => {
+        this.setState({form: true, name, categories, imageUrl})
     }
 
     handleFormSubmit = (e) => {
@@ -35,39 +39,43 @@ class RestaurantSearch extends Component {
     }
 
     render() {
+        let {name, categories, imageUrl} = this.state
         return (
 
             <div style={{paddingTop: '50px', height: `${this.state.form ? 'auto' : '96vh'}`}} className="main">
-                <form onSubmit={this.handleFormSubmit} className="two-third-form-region">
-                    <Row form style={{width: '100%'}}>
-                        <div style={{display: 'flex', justifyContent: 'left'}}>
-                            <Col>
+                <div className="restContainer">
+                    <form onSubmit={this.handleFormSubmit} className="two-third-form-region" style={{height: '80px'}}>
+                        <div className="restForm"
+                             style={{display: 'flex', justifyContent: 'flex-start', wrap: 'nowrap', height: '80px'}}>
+                            <div>
                                 <label>
-                                    <p children={'Search for your restaurant:'}/>
+                                    Search for your restaurant:
                                 </label>
-                                <input type="text" name="term" placeholder="e.g. fish, Hodad's"
-                                       onChange={this.handleChange}
-                                       className="two-third-form-item"/>
-                            </Col>
+                                <Input type="text" name="term" placeholder="e.g. fish, Cheesecake Factory"
+                                       onChange={this.handleChange} style={{width: '290px', marginBottom: '15px'}}/>
+                            </div>
 
-                            <Col>
+                            <div>
                                 <label>
-                                    <p>Where are you?</p>
+                                    Where are you?
                                 </label>
 
-                                <input type="text" name="location" placeholder="e.g. San Diego, NY, 503 J st."
-                                       onChange={this.handleChange} className="two-third-form-item"/>
-                            </Col>
-                            <Col style={{alignSelf: 'center'}}>
-                                <Button type="submit" >Submit</Button>
-                            </Col>
+                                <Input type="text" name="location" placeholder="e.g. San Diego, NY, 503 J St."
+                                       onChange={this.handleChange} style={{width: '290px'}}/>
+                            </div>
+                            <div className="restButton">
+                                <Button type="submit">Submit</Button>
+                            </div>
                         </div>
-                    </Row>
-                </form>
+                    </form>
 
-                <RestaurantList form={this.state.form} history={this.props.history} toggleForm={this.toggleForm}
-                                restaurants={this.state.results}/>
-
+                    <RestaurantList form={this.state.form} history={this.props.history}
+                                    toggleForm={this.toggleForm} restaurants={this.state.results}/>
+                </div>
+                <div>
+                    {this.state.form && <AddTip restaurant={name} history={this.props.history} imageUrl={imageUrl}
+                                                categories={categories}/>}
+                </div>
             </div>
         );
     }

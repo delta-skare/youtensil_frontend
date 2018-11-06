@@ -16,7 +16,7 @@
 .img-logo {
     padding: .25rem;
     width: 40%;
-    margin: 4rem;
+    margin: 4%
 }
 
 .landing-buttons {
@@ -99,4 +99,57 @@
 
 .profile-image-container > img {
     width: inherit;
+}
+
+.restList {
+    width: 600px;
+    margin-bottom: 10px;
+}
+
+.restButton {
+    align-self: center;
+    margin-top: 17px;
+}
+
+.restContainer {
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+@media (min-width: 1291px) {
+    .restList {
+        margin-top: 64px;
+        margin-left: 0 px;
+    }
+}
+
+@media (max-width: 1290px) and (min-width: 769px) {
+    .restContainer {
+        flex-direction: column;
+    }
+    .restList {
+        margin-top: 20px;
+        margin-left: 32px;
+    }
+}
+
+@media (max-width: 768px) {
+    .restButton {
+        align-self: flex-start;
+        margin-top: 5px;
+        margin-bottom: 20px;
+    }
+
+    .restForm {
+        flex-flow: column;
+        align-items: flex-start;
+    }
+    .restList {
+        margin-top: 140px;
+        margin-left: 32px;
+        width: 415px;
+    }
 }

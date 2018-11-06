@@ -9,7 +9,7 @@
   background: no-repeat center center scroll;
   /*background-size: cover;*/
   /*z-index: -1;*/
-  background: -webkit-linear-gradient(45deg, rgba(255,255,255,1) 0%, rgba(11,145,254,1) 100%);
+  background: -webkit-linear-gradient(45deg, rgba(255,255,255,1) 0%, rgba(8, 157, 200 ,1) 100%);
 }
 
 .dashboard-background-image {

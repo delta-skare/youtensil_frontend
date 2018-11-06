@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import AddTip from './AddTip'
 import '../css/Full.css'
+import {Input} from "reactstrap";
 
 // Put this inside Search form
 class RestaurantList extends Component {
@@ -19,9 +20,7 @@ class RestaurantList extends Component {
         let name = restaurantDetails[0]
         let categories = restaurantDetails[1]
         let imageUrl = restaurantDetails[2] ? restaurantDetails[2] : 'artur-rutkowski-61567-unsplash.jpg'
-        this.setState({
-            name, categories, imageUrl
-        }, this.props.toggleForm())
+        this.props.toggleForm(name, categories, imageUrl)
     }
 
     render() {
@@ -29,21 +28,16 @@ class RestaurantList extends Component {
         let {restaurants, form} = this.props
         let restaurantOptions
 
-        if (restaurants.length === 0) {
-            restaurantOptions = <p children="The results of your search will replace me!"/>
+        if (!restaurants.length) {
+            restaurantOptions = <option disabled selected>The results of your search will appear here!</option>
         } else {
             restaurantOptions = (
-                <select
-                    onChange={this.handleSelect}
-                    name="email"
-                    value={this.state.restaurant}
-                >
+                    <React.Fragment>
                     <option hidden disabled selected value children={'Select a restaurant'}/>
                     {
                         restaurants.map(restaurant => {
                             return (
                                 <option
-                                    className="main"
                                     key={restaurant.id}
                                     value={`${restaurant.name}~${restaurant.categories.map(category => {
                                         return category.title
@@ -53,17 +47,21 @@ class RestaurantList extends Component {
                             )
                         })
                     }
-                </select>
+                    </React.Fragment>
             )
         }
 
         return (
-
             <div className="restList">
-
-                {form === true ? <AddTip restaurant={name} history={this.props.history} imageUrl={imageUrl}
-                                         categories={categories}/> : restaurantOptions}
-
+                <Input
+                    type="select"
+                    onChange={this.handleSelect}
+                    name="email"
+                    value={this.state.restaurant}
+                    style={{maxWidth: '580px'}}
+                >
+                {restaurantOptions}
+                </Input>
             </div>
         )
     }

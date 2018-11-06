@@ -3,6 +3,7 @@ import {Container, Row, Col, UncontrolledAlert, Button, Input} from 'reactstrap'
 import '../css/TwoThird.css';
 import AuthService from '../services/AuthService';
 import loginImage from '../images/edward-guk-357344-unsplash.jpg'
+import {Link} from "react-router-dom";
 
 class Login extends Component {
     constructor() {
@@ -62,7 +63,12 @@ class Login extends Component {
                                 />
                                 <div className="button-container">
                                     <Button type="submit">Submit</Button>
-                                    <Button onClick={() => this.props.history.replace('/register')}>Register</Button>
+                                    <Col>
+                                        <h6>Not a member?</h6>
+
+                                        <Link style={{color: 'black', textDecoration: 'underline'}} to="/register">
+                                            <h6>Register here!</h6></Link>
+                                    </Col>
                                 </div>
                             </form>
                             <br/>

@@ -3,7 +3,7 @@ import ImageUploader from './ImageUploader';
 import {createTip} from '../services/TipService'
 import withAuth from './withAuth'
 import '../css/TwoThird.css';
-import {Container, Row, Col} from 'reactstrap';
+import {Container, Row, Col, Input} from 'reactstrap';
 
 
 class AddTip extends Component {
@@ -41,26 +41,28 @@ class AddTip extends Component {
         return (
             <Container fluid style={{overflowX: 'hidden'}}>
                 <Row>
-                    <Col sm="8">
-                        <form className="two-third-form-region">
+                    <Col sm="6">
+                        <form className="add-tip-form">
                             <h2>
                                 {this.props.restaurant}
                             </h2>
                             <h3>
                                 Tip Description
                             </h3>
-                            <textarea
-                                className="two-third-form-item"
-                                placeholder="Description"
+                            <Input
+                                className="two-third-text-area"
                                 name="description"
                                 onChange={this.handleChange.bind(this)}
+                                placeholder="Description"
+                                type="textarea"
                                 value={this.state.description}
                             />
                         </form>
+                        <br/>
                         <ImageUploader location="tip-images" handleImage={this.handleImage}
                                        className="two-third-form-region"/>
                     </Col>
-                    <Col sm="4">
+                    <Col sm="6">
                         <div >
                             <img src={this.props.imageUrl} className="side-image" alt="flavor"/>
                         </div>

@@ -10,6 +10,7 @@
 }
 
 .side-image {
+    margin-top: -1px;
     height: 96vh;
     /*width: inherit;*/
 }
@@ -56,5 +57,13 @@
 .button-container {
     display: flex;
     flex-flow: row;
-    justify-content: space-around;
+    justify-content: space-between;
+}
+
+.two-third-text-area > .two-third-form-item {
+
+}
+
+.add-tip-form {
+    margin-left: 16px;
 }
