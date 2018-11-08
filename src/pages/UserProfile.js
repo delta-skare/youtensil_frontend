@@ -240,13 +240,12 @@ class userProfile extends Component {
             <div className="main" style={{height: `${tips.length ? 'auto' : '96vh'}`}}>
             <div style={{
               display:"flex",
-              justifyContent: "center",
-              border: "solid black 1px"
+              justifyContent: "center"
             }}>
                 {currentProfile.user_id === userId
                     ?
-                    <div style={{border: "solid pink 3px", display: "flex", flexDirection:"column", justifyContent:"center"}}>
-                        <h1 style={{display:"flex", justifyContent: "center"}}>Dashboard</h1>
+                    <div style={{display: "flex", flexDirection:"column", justifyContent:"center"}}>
+                        <h1 style={{display:"flex", justifyContent: "center", color: "white"}}>Dashboard</h1>
                         {/* -------------- USERNAME ------------------ */}
 
                         {
@@ -263,7 +262,7 @@ class userProfile extends Component {
                             form.image
                                 ? <ImageUploader location="profile-images" handleImage={this.handleImage}/>
                                 : <div style={{display:"flex", justifyContent: "center"}}>
-                                    <img className="profile-image" src={currentProfile.image} alt="Your avatar"/>
+                                    <img className="profile-image" src={currentProfile.image} alt="Your avatar" />
                                 </div>
                         }
 
@@ -301,15 +300,19 @@ class userProfile extends Component {
                     </div>
                     :
                     <div>
-                        <h1 children={`${currentProfile.username}'s Profile`}/>
-                        <img src={currentProfile.image} alt={`${currentProfile.username}'s avatar`}/>
-                        <h2 children={`${currentProfile.username}`}/>
-                        <p children={currentProfile.bio}/>
-                        <FollowButton followText={"This profile"} followUserId={this.props.match.params.userId}/>
+                        <h1 style={{display:"flex", justifyContent: "center", color: "white"}} children={`${currentProfile.username}'s Profile`}/>
+                        <div style={{display:"flex", justifyContent: "center"}}>
+                          <img className="profile-image" src={currentProfile.image} alt={`${currentProfile.username}'s avatar`}/>
+                        </div>
+                        <h2 style={{display:"flex", justifyContent: "center", color: "white"}} children={`${currentProfile.username}`}/>
+                        <p style={{display:"flex", justifyContent: "center", color: "white"}} children={currentProfile.bio}/>
+                        <div style={{display:"flex", justifyContent: "center", color: "white"}}>
+                          <FollowButton followText={"This profile"} followUserId={this.props.match.params.userId}/>
+                        </div>
                     </div>
                 }
                 </div>
-                <h1 children={`How ${currentProfile.user_id === userId ? 'you eat' : currentProfile.username + ' eats'} better:`}/>
+                <h1 style={{display:"flex", justifyContent: "center", color: "white"}} children={`How ${currentProfile.user_id === userId ? 'you eat' : currentProfile.username + ' eats'} better:`}/>
                 <div style={{margin: "20px"}}>
                   <CardColumns>
                     {tipList}
