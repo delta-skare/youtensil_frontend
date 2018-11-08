@@ -1,6 +1,6 @@
 import React from 'react';
 import '../css/tipFeed.css'
-import {CardDeck} from 'reactstrap'
+import {Col, CardDeck, CardColumns} from 'reactstrap'
 import Tip from './Tip'
 
 
@@ -11,9 +11,11 @@ function TipFeed(props) {
     })
 
     return (
-        <CardDeck style={{marginBottom: "50px"}}>
+
+        <CardColumns style={{marginBottom: "50px"}} size="sm">
             {tipList}
-        </CardDeck>
+        </CardColumns>
+
     );
 }
 
