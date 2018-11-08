@@ -9,13 +9,11 @@ import GitHub from '../images/github2.png'
 import LinkedIn from '../images/linkedin2.png'
 import { Container, Row, Col } from 'reactstrap';
 
-
-
 class Team extends Component {
 
   render() {
     return (
-        <div className="main">
+        <div className="main" style={{height: '96vh'}}>
             <h1 className="text-center team-header">Support and Development Team</h1>
                 <Container fluid>
                     <Row className="team-row">

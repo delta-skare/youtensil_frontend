@@ -2,6 +2,7 @@
 .main {
   font-family: 'Landmark-Regular', 'Roboto', sans-serif;
   width: 100vw;
+  padding-bottom: 4vh;
 }
 
 @font-face{ font-family: 'Landmark-Regular'; src: url('../Landmark-Regular.otf')}

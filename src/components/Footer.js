@@ -1,17 +1,14 @@
-import React, { Component } from 'react'
+import React from 'react'
 import '../css/index.css';
 
-class Footer extends Component {
-
-render() {
+function Footer() {
     return (
-        <div className="footer main">
+        <div className="footer">
             <a href='/home'>Home</a>
             <a href="/team">Team</a>
             <a href="mailto:hello.youtensil@gmail.com">Support</a>
         </div>
     );
-}
 }
 
 export default Footer;

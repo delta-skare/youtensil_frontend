@@ -1,5 +1,8 @@
 .main {
+  padding-top: 59px;
   font-family: 'Landmark-Regular', 'Roboto', sans-serif;
+  /*height: 96vh;*/
+  background: -webkit-linear-gradient(45deg, rgba(255,255,255,1) 0%, rgba(8, 157, 200 ,1) 100%);
   /* width: 100vw; */
 }
 
@@ -8,11 +11,13 @@
 
 
 .footer{
+  font-family: 'Landmark-Regular', 'Roboto', sans-serif;
   background-color: black;
-  display: inline-block;
-  text-align: center;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
   width: 100vw;
-  height: 8vh;
+  height: 4vh;
   line-height: 45px;
   bottom: 0;
   position: fixed;
@@ -32,6 +37,7 @@
 }
 
 .navnav{
+  font-family: 'Landmark-Regular', 'Roboto', sans-serif;
   z-index: 1;
   color: white;
   background-color: black;
