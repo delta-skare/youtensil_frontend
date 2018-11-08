@@ -33,7 +33,7 @@ class Register extends Component {
             this.Auth.register({user: this.state})
                 .then(res => {
                     if (typeof res === 'string') return this.setState({alert: true})
-                    this.props.history.replace('/dashboard')
+                    this.props.history.replace(`/user/${this.Auth.getUserId()}`)
                 })
         })
     }
