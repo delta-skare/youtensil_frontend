@@ -3,7 +3,7 @@ import {getProfiles} from '../services/ProfileService.js'
 import {Link} from 'react-router-dom'
 import '../css/Full.css'
 import {Container, Row, Col, CardImg, Card, CardLink, CardBody, CardColumns } from 'reactstrap';
-
+import silhouette from '../images/woman-silhouette.jpg'
 
 class UserProfileFeed extends Component {
     constructor(props) {
@@ -29,15 +29,14 @@ class UserProfileFeed extends Component {
                     <Link to={`user/${profile.id}`}>
                         <Card body className="text-left" style={{margin: '10px 0'}}>
                             <CardBody>
-                                <CardLink href={`user/${profile.id}`}>{profile.username}</CardLink>
+                                <CardLink href={`user/${profile.id}`}>{profile.username || `User ${profile.id}`}</CardLink>
                             </CardBody>
                             <div className="card-image-container">
-                                <CardImg bottom width="100%" src={profile.image} alt={`${profile.username}'s avatar`}/>
+                                <CardImg bottom width="100%" src={profile.image || silhouette} alt={`${profile.username || `User ${profile.id}`}'s avatar`}/>
                             </div>
                         </Card>
                     </Link>
                 </Col>
-
             )
         })
 

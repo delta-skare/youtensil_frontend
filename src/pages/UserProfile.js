@@ -5,6 +5,7 @@ import Tip from '../components/Tip'
 import ImageUploader from '../components/ImageUploader'
 import FollowButton from '../components/FollowButton'
 import AuthService from '../services/AuthService.js'
+import silhouette from '../images/woman-silhouette.jpg'
 import '../css/Full.css'
 import { CardColumns } from 'reactstrap'
 // import {Container, Row, Col} from 'reactstrap';
@@ -44,7 +45,7 @@ class userProfile extends Component {
         getProfile(this.props.match.params.userId)
             .then(profile => {
                 if (profile.username === null) {
-                    profile.username = "New User"
+                    profile.username = "Set Username"
                 }
                 profile.user_id = profile.user_id.toString()
                 getUserTips(this.props.match.params.userId)
@@ -210,7 +211,6 @@ class userProfile extends Component {
                     className="dashboard-form-item"
                     placeholder={placeholder}
                     name={parameter}
-                    type={type}
                     onChange={this.handleChange(stateObject)}
                     value={this.state[stateObject][parameter]}
                 />
@@ -246,14 +246,17 @@ class userProfile extends Component {
                     ?
                     <div style={{display: "flex", flexDirection:"column", justifyContent:"center"}}>
                         <h1 style={{display:"flex", justifyContent: "center", color: "white"}}>Dashboard</h1>
+
                         {/* -------------- USERNAME ------------------ */}
 
+                                {currentProfile.user_id === userId && <p>Click text about you to edit</p>}
                         {
                             form.username
                                 ? this.createFormField("username")
                                 : <h2 onClick={this.toggleFormField("username")} style={{display:"flex", justifyContent: "center"}}>
-                                    {currentProfile.user_id === userId ? 'Your Profile' : currentProfile.username}
+                                    {currentProfile.user_id === userId ? currentProfile.username : `${currentProfile.username}'s Profile`}
                                 </h2>
+
                         }
 
                         {/* -------------- PROFILE IMAGE ------------------ */}
@@ -262,7 +265,8 @@ class userProfile extends Component {
                             form.image
                                 ? <ImageUploader location="profile-images" handleImage={this.handleImage}/>
                                 : <div style={{display:"flex", justifyContent: "center"}}>
-                                    <img className="profile-image" src={currentProfile.image} alt="Your avatar" />
+                                    <img className="profile-image" src={currentProfile.image || silhouette} alt="Your avatar"/>
+
                                 </div>
                         }
 
@@ -279,7 +283,7 @@ class userProfile extends Component {
                         }
 
                         {/* -------------- FAVORITE FOODS ------------------ */}
-                        <p children={"Food categories of restaurants you'd like to see tips for:"}/>
+                        <h3 children={"Food categories of restaurants you'd like to see tips for:"}/>
                         {
                             form.food_types
                                 ? this.createFormField("food_types")
