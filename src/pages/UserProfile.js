@@ -6,6 +6,7 @@ import ImageUploader from '../components/ImageUploader'
 import FollowButton from '../components/FollowButton'
 import AuthService from '../services/AuthService.js'
 import '../css/Full.css'
+import { CardColumns } from 'reactstrap'
 // import {Container, Row, Col} from 'reactstrap';
 
 class userProfile extends Component {
@@ -237,15 +238,21 @@ class userProfile extends Component {
 
 
             <div className="main" style={{height: `${tips.length ? 'auto' : '96vh'}`}}>
+            <div style={{
+              display:"flex",
+              justifyContent: "center",
+              border: "solid black 1px"
+            }}>
                 {currentProfile.user_id === userId
-                    ? <div>
-                        <h1>Dashboard</h1>
+                    ?
+                    <div style={{border: "solid pink 3px", display: "flex", flexDirection:"column", justifyContent:"center"}}>
+                        <h1 style={{display:"flex", justifyContent: "center"}}>Dashboard</h1>
                         {/* -------------- USERNAME ------------------ */}
 
                         {
                             form.username
                                 ? this.createFormField("username")
-                                : <h2 onClick={this.toggleFormField("username")}>
+                                : <h2 onClick={this.toggleFormField("username")} style={{display:"flex", justifyContent: "center"}}>
                                     {currentProfile.user_id === userId ? 'Your Profile' : currentProfile.username}
                                 </h2>
                         }
@@ -255,12 +262,12 @@ class userProfile extends Component {
                         {
                             form.image
                                 ? <ImageUploader location="profile-images" handleImage={this.handleImage}/>
-                                : <div className="profile-image-container">
+                                : <div style={{display:"flex", justifyContent: "center"}}>
                                     <img className="profile-image" src={currentProfile.image} alt="Your avatar"/>
                                 </div>
                         }
 
-                        <button className="btn" onClick={this.toggleFormField("image")}>Edit Avatar</button>
+                        <button onClick={this.toggleFormField("image")}>Edit Avatar</button>
 
 
                         {/* -------------- ABOUT ------------------ */}
@@ -283,13 +290,13 @@ class userProfile extends Component {
                         }
 
                         {/* -------------- EMAIL ------------------ */}
-                        <button className="btn" onClick={this.toggleFormField("email")}>Edit Email</button>
+                        <button onClick={this.toggleFormField("email")}>Edit Email</button>
                         <div className="form-field">
                             {form.email && this.createFormField("email")}
                         </div>
 
                         {/* -------------- PASSWORD ------------------ */}
-                        <button className="btn" onClick={this.toggleFormField("password")}>Edit Password</button>
+                        <button onClick={this.toggleFormField("password")}>Edit Password</button>
                         {form.password && this.createFormField("password")}
                     </div>
                     :
@@ -301,9 +308,13 @@ class userProfile extends Component {
                         <FollowButton followText={"This profile"} followUserId={this.props.match.params.userId}/>
                     </div>
                 }
+                </div>
                 <h1 children={`How ${currentProfile.user_id === userId ? 'you eat' : currentProfile.username + ' eats'} better:`}/>
-                {tipList}
-
+                <div style={{margin: "20px"}}>
+                  <CardColumns>
+                    {tipList}
+                  </CardColumns>
+                </div>
             </div>
 
 
