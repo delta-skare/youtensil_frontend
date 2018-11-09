@@ -131,7 +131,7 @@ class ImageUploader extends Component {
                                  alt="preview"/>
                         </div> : ''}
                 </div>
-                <button onClick={this.handleUpload}>Upload</button>
+              <button onClick={this.handleUpload}>Upload</button><button onClick={() => this.props.toggle("image")}>Back</button>
                 <br/>
             </div>
         );

@@ -7,7 +7,7 @@ import FollowButton from '../components/FollowButton'
 import AuthService from '../services/AuthService.js'
 import silhouette from '../images/woman-silhouette.jpg'
 import '../css/Full.css'
-import { CardColumns } from 'reactstrap'
+import {Button, CardColumns} from 'reactstrap'
 // import {Container, Row, Col} from 'reactstrap';
 
 class userProfile extends Component {
@@ -245,11 +245,11 @@ class userProfile extends Component {
                 {currentProfile.user_id === userId
                     ?
                     <div style={{display: "flex", flexDirection:"column", justifyContent:"center"}}>
-                        <h1 style={{display:"flex", justifyContent: "center", color: "white"}}>Dashboard</h1>
 
                         {/* -------------- USERNAME ------------------ */}
-
-                                {currentProfile.user_id === userId && <p>Click text about you to edit</p>}
+                        <div style={{alignSelf: 'center'}}>
+                                <p>Click your avatar/text about yourself to edit</p>
+                        </div>
                         {
                             form.username
                                 ? this.createFormField("username")
@@ -263,14 +263,16 @@ class userProfile extends Component {
 
                         {
                             form.image
-                                ? <ImageUploader location="profile-images" handleImage={this.handleImage}/>
+                              ? <div style={{alignSelf: 'center', width: '200px', display:"flex", justifyContent: "center", flexWrap: 'row'}}><ImageUploader toggle={() => {
+                              form.image = false
+                              this.setState({form})}
+                              } location="profile-images" handleImage={this.handleImage}/></div>
                                 : <div style={{display:"flex", justifyContent: "center"}}>
-                                    <img className="profile-image" src={currentProfile.image || silhouette} alt="Your avatar"/>
-
+                                    <img className="profile-image" src={currentProfile.image || silhouette} alt="Your avatar" onClick={this.toggleFormField("image")}/>
                                 </div>
+
                         }
 
-                        <button onClick={this.toggleFormField("image")}>Edit Avatar</button>
 
 
                         {/* -------------- ABOUT ------------------ */}
@@ -293,14 +295,16 @@ class userProfile extends Component {
                         }
 
                         {/* -------------- EMAIL ------------------ */}
-                        <button onClick={this.toggleFormField("email")}>Edit Email</button>
+                        <div style={{alignSelf: 'center'}}>
+                        <Button onClick={this.toggleFormField("email")} style={{ width: '150px'}}>Edit Email</Button>
                         <div className="form-field">
                             {form.email && this.createFormField("email")}
                         </div>
 
                         {/* -------------- PASSWORD ------------------ */}
-                        <button onClick={this.toggleFormField("password")}>Edit Password</button>
+                        <Button style={{ width: '150px'}} onClick={this.toggleFormField("password")}>Edit Password</Button>
                         {form.password && this.createFormField("password")}
+                        </div>
                     </div>
                     :
                     <div>
@@ -316,7 +320,7 @@ class userProfile extends Component {
                     </div>
                 }
                 </div>
-                <h1 style={{display:"flex", justifyContent: "center", color: "white"}} children={`How ${currentProfile.user_id === userId ? 'you eat' : currentProfile.username + ' eats'} better:`}/>
+                <h1 style={{display:"flex", marginTop: '20px', justifyContent: "center", color: "white"}} children={`How ${currentProfile.user_id === userId ? 'you eat' : currentProfile.username + ' eats'} better:`}/>
                 <div style={{margin: "20px"}}>
                   <CardColumns>
                     {tipList}
